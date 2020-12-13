@@ -1,0 +1,143 @@
+body{
+  margin: 0 auto;
+}
+@media (min-width: 1200px) {
+  .body{
+      width: 1199px;
+      margin: 0 auto;
+      background-color: rgba(42, 163, 163, 0.3);
+  }
+}
+@media (max-width: 1199px) {
+  .body{
+      background-color: rgba(42, 163, 163, 0.3);
+  }
+}
+
+
+
+
+
+//------------------------HEADER
+.navbar{
+  background-color: $background-color-1;
+}
+
+
+
+
+// -----------------------SWITCHER BUTTON
+.second-wrapper-btns {
+  display: inline-block;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 0;
+}
+.switch input {
+  display:none;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $color-3;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: solid 1px $color-5;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  left: 2px;
+  bottom: 2px;
+  top: 2px;
+  right: 2px;
+  background-color: rgba(246, 255, 254, 0.911);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: solid 1px $color-6;
+}
+input:checked + .slider {
+  background-color: $color-4;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px $color-4;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.graph{
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+// ----------------FOOTER
+.page-footer {
+  background-color: rgba(44, 138, 138, 0.5) !important;
+}
+.list-unstyled a{
+  text-decoration: none !important;
+  color: $color-1;
+}
+.list-unstyled a:hover{
+  text-decoration: none !important;
+  color: $color-2;
+}
+.footer-ul ul{
+  text-decoration: none; 
+  padding-inline-start: 0 !important;
+}
+.footer-ul li{
+  list-style: none;
+}
+#text-column-2{
+  padding-left: 50px;
+}
+.footer-copyright .text-right .py-3{
+  margin-right: 50px;
+}
+@media (max-width: 768px) {
+  .container-fluid{
+      padding: 0 20px 0 20px !important;
+  }
+  #text-column-1{
+      padding: 0 20px 0 20px !important;
+  }
+  #text-column-2{
+      padding: 0 20px 0 20px !important;
+  }
+  #text-column-3{
+      padding: 0 20px 0 20px !important;
+  }
+}
+
+
+
+
