@@ -6,7 +6,7 @@ footer.innerHTML = `
     <div class="row">
       <div class="col-md-6 mt-md-0 mt-3" id="text-column-1">
         <h5>COVID-19 Dashboard</h5>
-        <p>This simple application shows you actual statistics about COVID-19</p>
+        <p>This simple application shows you actual statistics about COVID-19 in whole world</p>
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
       <div class="col-md-3 mb-md-0 mb-3" style="padding-left: 50px;" id="text-column-2">
@@ -25,5 +25,7 @@ footer.innerHTML = `
   </div>
   <div class="footer-copyright text-right py-3" style="margin-right: 50px">© 2020 Copyright:
     <a href="https://github.com/Tonia-SE" target="blank">https://github.com/Tonia-SE</a>
+    <a href="https://github.com/Tonia-SE" target="blank">https://github.com/pannage</a>
+    <a href="https://github.com/Tonia-SE" target="blank">https://github.com/efando</a>
   </div>
 </footer>`;
