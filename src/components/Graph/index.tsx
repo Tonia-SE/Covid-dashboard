@@ -1,20 +1,23 @@
 import React from 'react';
 import { Maximise } from '../MaximiseButton';
-import { Switcher } from '../Switcher';;
+import { Switcher } from '../Switcher';
+import './graph.scss';
 
 export class Graph extends React.Component {
     render() {
         return (
         <>
-            <div className="maximise-wrapper">
-                <Switcher />
-                <Switcher />
-                <Maximise />
+            <div className='table-graph-wrapper'>
+                <div className="maximise-wrapper">
+                    <Switcher />
+                    <Switcher />
+                    <Maximise />
+                </div>
+                <div className="graph">
+                    <p>Grath coming soon...</p>
+                </div>
             </div>
-            <div className="graph">
-                <p>Grath coming soon...</p>
-            </div>
-        </> 
+        </>
         );
     }
 }
