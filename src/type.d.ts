@@ -32,11 +32,11 @@ interface Summary {
 
 interface Country {
     "updated": Number,
-    "country": String,
+    "country": string,
     "countryInfo": {
         "_id": string,
-        "iso2": String,
-        "iso3": String,
+        "iso2": string,
+        "iso3": string,
         "lat": Number,
         "long": Number,
         "flag": string
@@ -81,6 +81,6 @@ interface Country {
 // }
 // type ToggleTodo = (selectedTodo: Todo) => void;
 
-// type AddTodo = (text: string) => void;
+type ChooseCountry = (country: Country) => void;
 
 // type CloseTodo = (selectedTodo: Todo) => void;
