@@ -5,6 +5,7 @@ import { Graph } from './components/Graph';
 import { Map } from './components/Map';
 import { Table2 } from './components/Table2';
 import { Footer } from './components/Footer';
+import { TotalCases } from './components/TotalCases';
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-3 d-none d-md-block bg-light">
+                        <TotalCases/>
                         <Table1 />
                         <Graph />
                     </div>

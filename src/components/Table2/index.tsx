@@ -8,7 +8,7 @@ import {Data} from '../Data';
 export class Table2 extends React.Component {
 
     state = {
-        loading: true, 
+        loading: true,
         countriesData: []
     }
 
@@ -18,8 +18,8 @@ export class Table2 extends React.Component {
         this.setState({countriesData: data, loading: false });
     }
 
-    render() {        
-        
+    render() {
+
         if (this.state.loading) {
             return (
                 <>
@@ -32,12 +32,12 @@ export class Table2 extends React.Component {
                     <div className="table-responsive table1">
                         <table>
                             <tbody>
-                                <tr>                
+                                <tr>
                                 <td>
                                     <p>loading...</p>
                                 </td>
                                 </tr>
-                            </tbody>    
+                            </tbody>
                         </table>
                     </div>
                 </>
@@ -61,7 +61,7 @@ export class Table2 extends React.Component {
                                     <th>Total cases</th>
                                 </tr>
                             </thead>
-                            <tbody>                                
+                            <tbody>
                                 {this.state.countriesData.map((country: Country) => {
                                     return (
                                         <tr>
