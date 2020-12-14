@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switcher } from '../Switcher';
 import { Maximise } from '../MaximiseButton';
 
-export class Table1 extends React.Component {
+interface Props {
+    countryUrl: string;
+}
 
+export class Table1 extends React.Component<Props> {
     state = {
         loading: true, 
         summaryData: {
@@ -30,10 +33,16 @@ export class Table1 extends React.Component {
         }
     }
 
-    async componentDidMount() {
-        //const url = "https://api.covid19api.com/summary";
-        const url = "https://disease.sh/v3/covid-19/all";
-        const data = await fetch(url).then(res => res.json());
+    async componentDidUpdate(prevProps: Props){
+        if (prevProps.countryUrl !== this.props.countryUrl) {            
+            this.setState({loading: true });
+            const data = await fetch(this.props.countryUrl).then(res => res.json());
+            this.setState({summaryData: data, loading: false });
+        }
+    }
+
+    async componentDidMount() {        
+        const data = await fetch(this.props.countryUrl).then(res => res.json());
         this.setState({summaryData: data, loading: false });
     }
 
@@ -45,15 +54,18 @@ export class Table1 extends React.Component {
                         <Switcher />
                         <Maximise />
                     </div>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p>loading...</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div className="table-responsive table1">
+                        <table className="table table-striped table-sm table1">
+                            <thead>
+                                <tr>
+                                    <th>Total cases</th>
+                                    <th>Total deaths</th>
+                                    <th>Total recovered</th>
+                                </tr>
+                            </thead>                            
+                        </table>
+                        <p>Loading...</p>
+                    </div>
                 </>
             );
         }
