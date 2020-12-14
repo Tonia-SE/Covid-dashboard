@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Maximise } from '../MaximiseButton';
 import { Form } from '../Form';
 import { Switcher } from '../Switcher';
-import {Data} from '../Data';
 
+interface Props {
+    chooseCountry: ChooseCountry
+}
 
-export class Table2 extends React.Component {
+export class Table2 extends React.Component<Props> {
 
     state = {
         loading: true, 
@@ -15,6 +17,20 @@ export class Table2 extends React.Component {
     async componentDidMount() {
         const url = "https://disease.sh/v3/covid-19/countries";
         const data = await fetch(url).then(res => res.json());
+
+        data.sort((a:Country, b:Country) => {
+            // Use toUpperCase() to ignore character casing
+            const bandA = a['cases'] ;
+            const bandB = b['cases'];
+            let comparison = 0;
+            if (bandA < bandB) {
+                comparison = 1;
+            } else if (bandA > bandB) {
+                comparison = -1;
+            }
+            return comparison;
+        });
+
         this.setState({countriesData: data, loading: false });
     }
 
@@ -61,18 +77,18 @@ export class Table2 extends React.Component {
                                     <th>Total cases</th>
                                 </tr>
                             </thead>
-                            <tbody>                                
+                            <tbody>
+                                
                                 {this.state.countriesData.map((country: Country) => {
                                     return (
-                                        <tr>
-                                            <td>
-                                                <img src={country.countryInfo.flag} style={{ border:3, height:'15%'}}/>
+                                        <tr key={country.country} onClick={() => {
+                                            this.props.chooseCountry(country);
+                                        }}>
+                                            <td >
+                                                <img src={country.countryInfo.flag} style={{ border:5, height:'13%'}}/> {country.country}
                                             </td>
                                             <td>
-                                                {country.country}
-                                            </td>
-                                            <td>
-                                                {country.cases}
+                                                {country['cases']}
                                             </td>
                                         </tr>
                                     );
@@ -83,90 +99,5 @@ export class Table2 extends React.Component {
                 </>
             );
         }
-    }
-}
-
-
-class Tablee extends React.Component {
-    render() {
-        return (
-            <>
-                <div className="maximise-wrapper">
-                    <Maximise />
-                </div>
-                <div className="table-responsive table2">
-                    <table className="table table-striped table-sm table2">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Header</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                            <tr>
-                                <td>1,001</td>
-                                <td>Lorem</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </>
-        );
     }
 }
