@@ -1,5 +1,5 @@
 import React from "react";
-import "./Map.css";
+import "./Map.scss";
 import Covid19 from "./components/Covid19";
 
 function MapWrapper() {

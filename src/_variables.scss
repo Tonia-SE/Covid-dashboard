@@ -29,3 +29,11 @@ $font-size-2: 1.2rem !important;
     rgba(0,197,0,0.8) 100%);
     box-shadow: 5px 5px 21px 10px rgba(0,0,0,0.8);
 }
+
+@mixin title-table {
+    color: #FFFFFF;
+
+    text-shadow: 3px 5px 2px #474747;
+    text-align: center;
+    font-size: 3rem;
+}

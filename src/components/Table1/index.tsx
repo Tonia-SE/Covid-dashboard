@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { Switcher1 } from '../Switcher1';
-import { Switcher2 } from '../Switcher2';
+import { Switcher } from '../Switcher';
 import { Maximise } from '../MaximiseButton';
 import { Spinner } from '../Spinner';
 import './table1.scss';
@@ -69,9 +68,9 @@ export class Table1 extends React.Component<Props, State> {
     render() {
         return (
             <div className="table-wrapper">
-                <div className="wrapper-toggles">
-                    <Switcher1 />
-                    <Switcher2 />
+                <div className="maximise-wrapper">
+                    <Switcher />
+                    <Switcher />
                     <Maximise />
                 </div>
                 <div className="table-responsive table1">

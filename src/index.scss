@@ -19,3 +19,7 @@ code {
 .col-md-3 {
   background-image: url('./assets/covid-back.jpg');
 }
+
+.col-md-2.d-none.d-md-block.bg-light1 {
+    color: rgba(0,0,0,0)!important;
+}

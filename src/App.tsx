@@ -39,7 +39,7 @@ function App() {
                     <div className="col-md-7 pt-3">
                         <Map />
                     </div>
-                    <div className="col-md-2 d-none d-md-block bg-light">
+                    <div className="col-md-2 d-none d-md-block bg-light1">
                         <Table2 chooseCountry={chooseCountry}/>
                     </div>
                 </div>

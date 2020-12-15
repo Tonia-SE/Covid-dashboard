@@ -1,0 +1,5 @@
+@import './../../variables';
+.h2 {
+    @include table_background_gradient;
+    @include title-table;
+}

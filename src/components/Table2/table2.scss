@@ -1,12 +1,9 @@
 @import './../../variables';
-
-.table-wrapper {
-    height: 20vh;
+.table2 {
+    height: 75vh;
     @include table_background_gradient;
-    margin: .5rem .5rem .5rem .5rem;
 }
-
 .maximise-wrapper {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
 }
