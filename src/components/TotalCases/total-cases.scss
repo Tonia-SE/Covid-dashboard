@@ -1,0 +1,23 @@
+@import './../../variables';
+
+.total-cases-wrapper {
+    height: 20vh;
+    margin: .5rem .5rem .5rem .5rem;
+    @include table_background_gradient;
+}
+
+.total-cases-title {
+    color: #FFFFFF;
+    margin-top: 3rem;
+    text-shadow: 3px 5px 2px #474747;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.total-cases-count {
+    color: #FFFFFF;
+    text-shadow: 3px 5px 2px #474747;
+    text-align: center;
+    font-size: 3rem;
+
+}

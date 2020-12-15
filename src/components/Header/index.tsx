@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.scss';
 
 export class Header extends React.Component {
     render() {
@@ -7,9 +8,6 @@ export class Header extends React.Component {
                 <div className="navbar navbar-expand-lg navbar-light bg-light">
                     <div className="dropdown">
                         <h1 className="navbar-brand">COVID-19 Dashboard</h1>
-                    </div>
-                    <div>
-                        <p>TOTAL CASES</p>
                     </div>
                 </div>
             </div>

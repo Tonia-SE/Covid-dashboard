@@ -20,3 +20,12 @@ $font-size-2: 1.2rem !important;
     outline: none;
     margin: 0;
 }
+
+@mixin table_background_gradient {
+    border: 2px solid green;
+    background: radial-gradient(ellipse at center,
+    rgba(8,224,211,0.8) 0%,
+    rgba(25,128,189,0.8) 51%,
+    rgba(0,197,0,0.8) 100%);
+    box-shadow: 5px 5px 21px 10px rgba(0,0,0,0.8);
+}

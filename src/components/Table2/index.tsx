@@ -10,7 +10,7 @@ interface Props {
 export class Table2 extends React.Component<Props> {
 
     state = {
-        loading: true, 
+        loading: true,
         countriesData: []
     }
 
@@ -34,8 +34,8 @@ export class Table2 extends React.Component<Props> {
         this.setState({countriesData: data, loading: false });
     }
 
-    render() {        
-        
+    render() {
+
         if (this.state.loading) {
             return (
                 <>
@@ -48,12 +48,12 @@ export class Table2 extends React.Component<Props> {
                     <div className="table-responsive table1">
                         <table>
                             <tbody>
-                                <tr>                
+                                <tr>
                                 <td>
                                     <p>loading...</p>
                                 </td>
                                 </tr>
-                            </tbody>    
+                            </tbody>
                         </table>
                     </div>
                 </>
@@ -78,7 +78,6 @@ export class Table2 extends React.Component<Props> {
                                 </tr>
                             </thead>
                             <tbody>
-                                
                                 {this.state.countriesData.map((country: Country) => {
                                     return (
                                         <tr key={country.country} onClick={() => {

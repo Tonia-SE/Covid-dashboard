@@ -1,0 +1,12 @@
+@import './../../variables';
+
+.table-wrapper {
+    height: 30vh;
+    @include table_background_gradient;
+    margin: .5rem .5rem .5rem .5rem;
+}
+
+.wrapper-toggles {
+    display: flex;
+    justify-content: flex-end;
+}
