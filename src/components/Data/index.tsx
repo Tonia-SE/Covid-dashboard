@@ -17,29 +17,4 @@ export class Data extends React.Component {
         return <></>;
     }
 
-    // render() {
-    //     if (this.state.loading) {
-    //         return (
-    //             <td>
-    //                 <p>loading...</p>
-    //             </td>
-    //         );
-    //     }
-
-    //     if (!this.state.loading) {
-    //         return (
-    //             <td>
-    //                 <p>000</p>
-    //             </td>
-    //         );
-    //     }
-
-    //     return (
-    //         <>
-    //             <td>
-    //                 <p>{this.state.country}</p>
-    //             </td>
-    //         </>
-    //     );
-    // }
 }

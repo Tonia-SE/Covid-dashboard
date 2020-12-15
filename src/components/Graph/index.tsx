@@ -1,6 +1,7 @@
 import React from 'react';
 import { Maximise } from '../MaximiseButton';
-import { Switcher } from '../Switcher';
+import { Switcher1 } from '../Switcher1';
+import { Switcher2 } from '../Switcher2';
 import './graph.scss';
 
 export class Graph extends React.Component {
@@ -9,8 +10,8 @@ export class Graph extends React.Component {
         <>
             <div className='table-graph-wrapper'>
                 <div className="maximise-wrapper">
-                    <Switcher />
-                    <Switcher />
+                    <Switcher1 />
+                    <Switcher2 />
                     <Maximise />
                 </div>
                 <div className="graph">
