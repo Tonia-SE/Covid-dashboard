@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { Maximise } from '../MaximiseButton';
 import { Form } from '../Form';
-import { Switcher } from '../Switcher';
-
+import { Switcher1 } from '../Switcher1';
+import { Switcher2 } from '../Switcher2';
+import { Spinner } from '../Spinner';
 interface Props {
     chooseCountry: ChooseCountry
 }
@@ -42,17 +43,13 @@ export class Table2 extends React.Component<Props> {
                     <div className="wrapper-form">
                         <Form />
                         <Maximise />
-                        <Switcher />
-                        <Switcher />
+                        <Switcher1 />
+                        <Switcher2 />
                     </div>
-                    <div className="table-responsive table1">
-                        <table>
+                    <div className="table-responsive table2">
+                        <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                             <tbody>
-                                <tr>
-                                <td>
-                                    <p>loading...</p>
-                                </td>
-                                </tr>
+                                <Spinner />
                             </tbody>
                         </table>
                     </div>
@@ -66,8 +63,8 @@ export class Table2 extends React.Component<Props> {
                     <div className="wrapper-countries">
                         <Form />
                         <Maximise />
-                        <Switcher />
-                        <Switcher />
+                        <Switcher1 />
+                        <Switcher2 />
                     </div>
                     <div className="table-responsive table2">
                         <table className="table table-striped table-sm table2">
