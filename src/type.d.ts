@@ -63,24 +63,28 @@ interface Country {
     "criticalPerOneMillion": Number
 }
 
-// interface Country {
-//     "Country": String,
-//     "CountryCode": String,
-//     "Slug": String,
-//     "NewConfirmed": Number,
-//     "TotalConfirmed": Number,
-//     "NewDeaths": Number,
-//     "TotalDeaths": Number,
-//     "NewRecovered": Number,
-//     "TotalRecovered": Number,
-//     "Date": String,
-//     "Premium": Object
-// }
-// interface HeaderH1 {
-//     text: string;
-// }
-// type ToggleTodo = (selectedTodo: Todo) => void;
-
 type ChooseCountry = (country: Country) => void;
 
-// type CloseTodo = (selectedTodo: Todo) => void;
+interface Table1Head  {
+    th1: string,
+    th2: string,
+    th3: string
+}
+
+interface Table1DataAttrs {
+    td1: string,
+    td2: string,
+    td3: string
+}
+
+interface TableHeaders {
+    all: Table1Head,
+    today: Table1Head,
+    relativeAll: Table1Head,
+    relativeToday: Table1Head
+}
+
+interface TableDataPossibleAttrs {
+    all: Table1DataAttrs,
+    today: Table1DataAttrs,
+}

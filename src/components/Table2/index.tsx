@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Maximise } from '../MaximiseButton';
 import { Form } from '../Form';
 import { Switcher } from '../Switcher';
 import { Spinner } from '../Spinner';
 import './table2.scss';
+
 interface Props {
     chooseCountry: ChooseCountry
 }
