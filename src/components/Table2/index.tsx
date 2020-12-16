@@ -13,7 +13,9 @@ export class Table2 extends React.Component<Props> {
 
     state = {
         loading: true,
-        countriesData: []
+        countriesData: [],
+        value: 'cases',
+        isFormVisible: false
     }
 
     async componentDidMount() {
@@ -41,13 +43,12 @@ export class Table2 extends React.Component<Props> {
         if (this.state.loading) {
             return (
                 <>
-                    <div className="wrapper-form">
-                        <Form />
-                        <Maximise />
-                        <Switcher />
-                        <Switcher />
-                    </div>
-                    <div className="table-responsive table2">
+                    <div className="table-responsive table2 ">
+                        <div className="wrapper-form">
+                            <Maximise />
+                            <Switcher />
+                            <Switcher />
+                        </div>
                         <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                             <tbody>
                                 <Spinner />
@@ -61,20 +62,28 @@ export class Table2 extends React.Component<Props> {
         if (!this.state.loading) {
             return (
                 <>
-                    <div className="wrapper-countries">
-                        <Form />
-                    <div className="maximise-wrapper">
-                        <Switcher />
-                        <Switcher />
-                        <Maximise />
-                    </div>
-                    </div>
+
                     <div className="table-responsive table2">
-                        <table className="table table-striped table-sm table2">
+                        <div className="wrapper-countries">
+                            <div className="maximise-wrapper">
+                                <Switcher />
+                                <Switcher />
+                                <Maximise />
+                            </div>
+                            { this.state.isFormVisible && <Form /> }
+                        </div>
+
+                        <table className="table table-striped table-sm ">
                             <thead>
                                 <tr>
-                                    <th>Country</th>
-                                    <th>Total cases</th>
+                                    <th> <div className='title-wrapper' onClick={() => {this.setState({isFormVisible: !this.state.isFormVisible});}}> <span>Country</span><button className="btn btn-outline-secondary" type="button">🔎</button></div></th>
+                                    <th>
+                                        <select className='select-country' onChange={(evt) => {this.setState({value: `${evt.target.value}`});}}>
+                                            <option className='table-point' value='cases'>Total cases</option>
+                                            <option className='table-point' value='deaths'>Total deaths</option>
+                                            <option className='table-point' value='recovered'>Total recovered</option>
+                                        </select>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,7 +96,8 @@ export class Table2 extends React.Component<Props> {
                                                 <img src={country.countryInfo.flag} style={{ border:5, height:'13%'}}/> {country.country}
                                             </td>
                                             <td>
-                                                {country['cases']}
+                                                {country[`${this.state.value}`]}
+
                                             </td>
                                         </tr>
                                     );

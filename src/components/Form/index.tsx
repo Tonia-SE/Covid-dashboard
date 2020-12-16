@@ -7,7 +7,6 @@ export class Form extends React.Component {
             <div className="input-group mb-3">
                 <input type="text" className="form-control" />
                 <div className="input-group-append">
-                    <button className="btn btn-outline-secondary" type="button">🔎</button>
                     <button className="btn btn-outline-secondary" type="button">⌨</button>
                 </div>
             </div>

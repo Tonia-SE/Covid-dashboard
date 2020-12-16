@@ -61,6 +61,7 @@ interface Country {
     "activePerOneMillion": Number,
     "recoveredPerOneMillion": Number,
     "criticalPerOneMillion": Number
+    [key: string]: number
 }
 
 type ChooseCountry = (country: Country) => void;
