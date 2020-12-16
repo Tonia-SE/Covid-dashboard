@@ -2,13 +2,13 @@ import React from 'react';
 import './switcher1.scss';
 
 interface SwitcherProps {
-    onChange?: (value: boolean) => void
+    onChange?: (value: boolean) => void,
 }
 interface State {
     checked: boolean;
 }
 export class Switcher extends React.Component<SwitcherProps, State> {
-    constructor(props: {}) {
+    constructor(props: SwitcherProps) {
         super(props);
         this.state = {
             checked: false

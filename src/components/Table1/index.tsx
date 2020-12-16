@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switcher } from '../Switcher';
 import { Maximise } from '../MaximiseButton';
 import { Spinner } from '../Spinner';
 import './table1.scss';
+//import { throws } from 'assert';
 
 interface Props {
     countryUrl: string;
@@ -10,16 +11,26 @@ interface Props {
         th1: string,
         th2: string,
         th3: string
-    };
+    },
     tableData: {
         td1: string,
         td2: string,
         td3: string
-    };
+    },
+    isRelativeValues: boolean,
+    updateTable1: (swithcerState: boolean) => void,
+    changeValuesTable1: (swithcerState: boolean) => void
 }
 
 interface State {
     loading: boolean,
+    th1: string,
+    th2: string,
+    th3: string,
+    td1: string,
+    td2: string,
+    td3: string,
+    isRelativeValues: boolean,
     summaryData: {
         [key: string]: number
     }
@@ -27,6 +38,13 @@ interface State {
 
 export class Table1 extends React.Component<Props, State> {
     state: State = {
+        th1: this.props.tableHead.th1,
+        th2: this.props.tableHead.th2,
+        th3: this.props.tableHead.th3,
+        td1: this.props.tableData.td1,
+        td2: this.props.tableData.td2,
+        td3: this.props.tableData.td3,
+        isRelativeValues: this.props.isRelativeValues,
         loading: true,
         summaryData: {
             "updated": 0,
@@ -58,6 +76,23 @@ export class Table1 extends React.Component<Props, State> {
             const data = await fetch(this.props.countryUrl).then(res => res.json());
             this.setState({summaryData: data, loading: false });
         }
+        if (prevProps.tableHead !== this.props.tableHead) {
+            this.setState({
+                th1: this.props.tableHead.th1,
+                th2: this.props.tableHead.th2,
+                th3: this.props.tableHead.th3,
+            });
+        }
+        if (prevProps.tableData !== this.props.tableData) {
+            this.setState({
+                td1: this.props.tableData.td1,
+                td2: this.props.tableData.td2,
+                td3: this.props.tableData.td3,
+            });
+        }
+        if (prevProps.isRelativeValues !== this.props.isRelativeValues) {
+            this.setState({ isRelativeValues: this.props.isRelativeValues });
+        }
     }
 
     async componentDidMount() {
@@ -66,20 +101,29 @@ export class Table1 extends React.Component<Props, State> {
     }
 
     render() {
+        let td1:number = this.state.summaryData[this.state.td1];
+        let td2:number = this.state.summaryData[this.state.td2];
+        let td3:number = this.state.summaryData[this.state.td3];
+        if (this.state.isRelativeValues) {
+            td1 = Math.floor(td1 / this.state.summaryData['population'] * 100000);
+            td2 = Math.floor(td2 / this.state.summaryData['population'] * 100000);
+            td3 = Math.floor(td3 / this.state.summaryData['population'] * 100000);
+        }
+
         return (
             <div className="table-wrapper">
                 <div className="maximise-wrapper">
-                    <Switcher />
-                    <Switcher />
+                    <Switcher onChange={this.props.updateTable1} />
+                    <Switcher onChange={this.props.changeValuesTable1}/>
                     <Maximise />
                 </div>
                 <div className="table-responsive table1">
                     <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                         <thead>
                             <tr>
-                                <th>{this.props.tableHead.th1}</th>
-                                <th>{this.props.tableHead.th2}</th>
-                                <th>{this.props.tableHead.th3}</th>
+                                <th>{this.state.th1}</th>
+                                <th>{this.state.th2}</th>
+                                <th>{this.state.th3}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -87,13 +131,13 @@ export class Table1 extends React.Component<Props, State> {
                                 !this.state.loading &&
                                 (<tr>
                                     <td>
-                                        {this.state.summaryData[this.props.tableData.td1]}
+                                        {td1}
                                     </td>
                                     <td>
-                                        {this.state.summaryData[this.props.tableData.td2]}
+                                        {td2}
                                     </td>
                                     <td>
-                                        {this.state.summaryData[this.props.tableData.td3]}
+                                        {td3}
                                     </td>
                                 </tr>)
                             }
