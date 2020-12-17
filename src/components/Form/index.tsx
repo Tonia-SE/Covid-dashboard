@@ -1,16 +1,24 @@
 import React from 'react';
 import './form.scss';
-export class Form extends React.Component {
-    render() {
+
+interface Props {
+    onfilterchange: (value: string) => void
+}
+export class Form extends React.Component<Props> {
+    state = {
+        value: ''
+      };
+
+      onInputChange (event: any) {
+        this.setState({value: event.target.value});
+        this.props.onfilterchange(event.target.value);
+      };
+
+      render () {
         return (
-        <>
-            <div className="input-group mb-3">
-                <input type="text" className="form-control" />
-                <div className="input-group-append">
-                    <button className="btn btn-outline-secondary" type="button">⌨</button>
-                </div>
-            </div>
-        </>
+        <div className="input-group mb-3">
+          <input type="text" className="form-control" value={this.state.value} onChange={(event) => this.onInputChange(event)} />
+        </div>
         );
-    }
+      }
 }

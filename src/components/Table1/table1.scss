@@ -3,7 +3,7 @@
 .table-wrapper {
     height: 20vh;
     @include table_background_gradient;
-    margin: .5rem .5rem .5rem .5rem;
+    margin: .2rem .2rem .2rem .2rem;
 }
 
 .maximise-wrapper {
@@ -11,4 +11,38 @@
     justify-content: flex-end;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.cases-head {
+    text-align: center;
+    color: #fff;
+    width: 2rem;
+    font-size: 1.5rem;
+}
+.table th, .table td {
+    padding: 0.3;
+}
+
+.cases-info {
+    text-align: center;
+    color: #fff;
+    width: 2rem;
+    font-size: 1.5rem;
+}
+
+
+@media (min-width: 768px) {
+    .cases-head {
+        width: 2rem;
+        font-size: 0.7rem;
+    }
+    .table th, .table td {
+        padding: 0.3;
+    }
+
+    .cases-info {
+        width: 2rem;
+        font-size: 0.7rem;
+    }
+
 }
