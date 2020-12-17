@@ -1,5 +1,13 @@
 .leaflet-container {
-  /* background-color: white; */
-  /* background-color: rgb(178, 210, 222); */
-  background-color: rgb(163, 206, 255);
+  background: radial-gradient(ellipse at center, rgba(8, 224, 211, 0.9) 0%, rgba(25, 128, 189, 0.9) 51%, rgba(0, 197, 148, 0.8) 100%);
+}
+
+
+.leaflet-tooltip {
+	padding: 6px;
+	background-color: rgb(245, 133, 133);
+	border: 1px solid rgb(255, 0, 0);
+	border-radius: 5px;
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
 }

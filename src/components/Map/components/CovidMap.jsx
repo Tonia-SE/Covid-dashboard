@@ -14,7 +14,14 @@ const CovidMap = ({ countries }) => {
     layer.options.fillColor = country.properties.color;
     const name = country.properties.ADMIN;
     const confirmedText = country.properties.confirmedText;
-    layer.bindPopup(`${name} ${confirmedText}`);
+    layer.bindTooltip(`${name} ${confirmedText}`, {
+      direction: 'right',
+      permanent: false,
+      sticky: true,
+      offset: [10, 0],
+      opacity: 0.9,
+      backgroundColor: 'black'
+  }).openTooltip();
   };
 
   return (
