@@ -3,10 +3,13 @@ import { Maximise } from '../MaximiseButton';
 import { Form } from '../Form';
 import { Switcher } from '../Switcher';
 import { Spinner } from '../Spinner';
+import { CountryName } from '../CountryName';
 import './table2.scss';
 
 interface Props {
-    chooseCountry: ChooseCountry
+    chooseCountry: ChooseCountry;
+    updateTable1: (swithcerState: boolean) => void;
+    changeValuesTable1: (swithcerState: boolean) => void;
 }
 
 export class Table2 extends React.Component<Props> {
@@ -15,7 +18,9 @@ export class Table2 extends React.Component<Props> {
         loading: true,
         countriesData: [],
         value: 'cases',
-        isFormVisible: false
+        isFormVisible: false,
+        selectedCountryName: '',
+        selectedCountryFlag: ''
     }
 
     async componentDidMount() {
@@ -44,10 +49,11 @@ export class Table2 extends React.Component<Props> {
             return (
                 <>
                     <div className="table-responsive table2 ">
-                        <div className="wrapper-form">
+                        <div className="wrapper-form">                            
+                            <Switcher onChange={this.props.updateTable1} />
+                            <Switcher onChange={this.props.changeValuesTable1}/>
+                            <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
                             <Maximise />
-                            <Switcher />
-                            <Switcher />
                         </div>
                         <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                             <tbody>
@@ -66,8 +72,9 @@ export class Table2 extends React.Component<Props> {
                     <div className="table-responsive table2">
                         <div className="wrapper-countries">
                             <div className="maximise-wrapper">
-                                <Switcher />
-                                <Switcher />
+                                <Switcher onChange={this.props.updateTable1} />
+                                <Switcher onChange={this.props.changeValuesTable1}/>
+                                <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
                                 <Maximise />
                             </div>
                             { this.state.isFormVisible && <Form /> }
@@ -89,7 +96,9 @@ export class Table2 extends React.Component<Props> {
                             <tbody>
                                 {this.state.countriesData.map((country: Country) => {
                                     return (
-                                        <tr key={country.country} onClick={() => {
+                                        <tr key={country.country} onClick={() => {                                            
+                                            this.setState({selectedCountryName: country.country});
+                                            this.setState({selectedCountryFlag: country.countryInfo.flag});
                                             this.props.chooseCountry(country);
                                         }}>
                                             <td >

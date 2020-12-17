@@ -2,11 +2,12 @@ import React from 'react';
 import { Switcher } from '../Switcher';
 import { Maximise } from '../MaximiseButton';
 import { Spinner } from '../Spinner';
+import { CountryName } from '../CountryName';
 import './table1.scss';
-//import { throws } from 'assert';
+
 
 interface Props {
-    countryUrl: string;
+    countryDetails: CountryDetails;
     tableHead: {
         th1: string,
         th2: string,
@@ -19,7 +20,7 @@ interface Props {
     },
     isRelativeValues: boolean,
     updateTable1: (swithcerState: boolean) => void,
-    changeValuesTable1: (swithcerState: boolean) => void
+    changeValuesTable1: (swithcerState: boolean) => void,
 }
 
 interface State {
@@ -31,6 +32,7 @@ interface State {
     td2: string,
     td3: string,
     isRelativeValues: boolean,
+    countryDetails: CountryDetails,
     summaryData: {
         [key: string]: number
     }
@@ -38,6 +40,7 @@ interface State {
 
 export class Table1 extends React.Component<Props, State> {
     state: State = {
+        countryDetails: this.props.countryDetails,
         th1: this.props.tableHead.th1,
         th2: this.props.tableHead.th2,
         th3: this.props.tableHead.th3,
@@ -71,10 +74,11 @@ export class Table1 extends React.Component<Props, State> {
     }
 
     async componentDidUpdate(prevProps: Props) {
-        if (prevProps.countryUrl !== this.props.countryUrl) {
+        if (prevProps.countryDetails.countryUrl !== this.props.countryDetails.countryUrl) {
             this.setState({loading: true });
-            const data = await fetch(this.props.countryUrl).then(res => res.json());
+            const data = await fetch(this.props.countryDetails.countryUrl).then(res => res.json());
             this.setState({summaryData: data, loading: false });
+            this.setState({countryDetails: this.props.countryDetails});
         }
         if (prevProps.tableHead !== this.props.tableHead) {
             this.setState({
@@ -96,7 +100,7 @@ export class Table1 extends React.Component<Props, State> {
     }
 
     async componentDidMount() {
-        const data = await fetch(this.props.countryUrl).then(res => res.json());
+        const data = await fetch(this.props.countryDetails.countryUrl).then(res => res.json());
         this.setState({summaryData: data, loading: false });
     }
 
@@ -115,6 +119,7 @@ export class Table1 extends React.Component<Props, State> {
                 <div className="maximise-wrapper">
                     <Switcher onChange={this.props.updateTable1} />
                     <Switcher onChange={this.props.changeValuesTable1}/>
+                    <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                     <Maximise />
                 </div>
                 <div className="table-responsive table1">
