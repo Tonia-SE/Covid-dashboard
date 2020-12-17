@@ -6,32 +6,38 @@ import { Table2 } from './components/Table2';
 import { Footer } from './components/Footer';
 import { TotalCases } from './components/TotalCases';
 
-const initialUrl: string = "https://disease.sh/v3/covid-19/all";
+//const initialUrl: string = "https://disease.sh/v3/covid-19/all";
+
+const initialCountryDetails:CountryDetails = {
+    countryUrl: "https://disease.sh/v3/covid-19/all",
+    countryFlag: '',
+    countryName: '',
+};
 
 const table1PossibleHeaders:TableHeaders = {
     // Текст заголовков таблицы, можно менять на свое усмотрение
     all: {
         th1: 'Total cases',
         th2: 'Total deaths',
-        th3: 'Total recovered'
+        th3: 'Total healed'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     today: {
         th1: 'Today\'s cases',
         th2: 'Today\'s deaths',
-        th3: 'Today\'s recovered'
+        th3: 'Today\'s healed'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     relativeAll: {
-        th1: 'Total cases per 100 000 population',
-        th2: 'Total deaths per 100 000 population',
-        th3: 'Total recovered per 100 000 population'
+        th1: 'Cases per   100 000',
+        th2: 'Deaths per  100 000',
+        th3: 'Healed per  100 000'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     relativeToday: {
-        th1: 'Today\'s cases per 100 000 population',
-        th2: 'Today\'s deaths per 100 000 population',
-        th3: 'Today\'s recovered per 100 000 population'
+        th1: 'Today\'s cases per 100 000',
+        th2: 'Today\'s deaths per 100 000',
+        th3: 'Today\'s healed per 100 000'
     },
 };
 
@@ -50,15 +56,19 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
 
 function App() {
 
-    const [countryUrl, setCountryUrl] = useState(initialUrl);
+    const [countryDetails, setCountryDetails] = useState(initialCountryDetails);
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
+    const [switch1State, swithcGroup1] = useState(false);
     const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
-    //let isToday = false;
 
     const chooseCountry = (selectedCountry: Country) => {
-        setCountryUrl(`https://disease.sh/v3/covid-19/countries/${selectedCountry.countryInfo.iso3}`);
+        setCountryDetails({
+            countryUrl: `https://disease.sh/v3/covid-19/countries/${selectedCountry.countryInfo.iso3}`,
+            countryFlag: selectedCountry.countryInfo.flag,
+            countryName: selectedCountry.country,
+        });
     };
 
     const update1Table1 = (switcherState: boolean) => {
@@ -108,19 +118,25 @@ function App() {
                 <div className="row">
                     <div className="col-md-3 d-md-block bg-light table-countries">
                         <TotalCases/>
-                        <Table1 countryUrl={countryUrl}
+                        <Table1 countryDetails={countryDetails}
                                 tableHead={table1Head}
                                 tableData={table1Data}
                                 isRelativeValues={isRelativeValues}
                                 updateTable1={update1Table1}
                                 changeValuesTable1={update2Table1} />
-                        <Graph />
+                        <Graph countryDetails={countryDetails}
+                                updateTable1={update1Table1}
+                                changeValuesTable1={update2Table1}/>
                     </div>
                     <div className="col-md-7 pt-3">
-                        <Map />
+                        <Map countryDetails={countryDetails}
+                            updateTable1={update1Table1}
+                            changeValuesTable1={update2Table1} />
                     </div>
                     <div className="col-md-2 d-md-block bg-light1 table-countries">
-                        <Table2 chooseCountry={chooseCountry}/>
+                        <Table2 chooseCountry={chooseCountry}
+                            updateTable1={update1Table1}
+                            changeValuesTable1={update2Table1}/>
                     </div>
                 </div>
                 <div>

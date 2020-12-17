@@ -89,3 +89,9 @@ interface TableDataPossibleAttrs {
     all: Table1DataAttrs,
     today: Table1DataAttrs,
 }
+
+interface CountryDetails {
+    countryUrl: string,
+    countryFlag: string,
+    countryName: string
+}
