@@ -125,6 +125,10 @@ body{
 .footer-copyright .text-right .py-3{
   margin-right: 50px;
 }
+
+
+
+
 @media (max-width: 768px) {
   .container-fluid{
       padding: 0 20px 0 20px !important;
@@ -138,6 +142,14 @@ body{
   #text-column-3{
       padding: 0 20px 0 20px !important;
   }
+
+  .row>:nth-child(1){
+    order:1;
+}
+
+    .row>:nth-child(2){
+        order:0;
+    }
 }
 
 

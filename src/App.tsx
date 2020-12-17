@@ -48,7 +48,7 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     }
 };
 
-function App() { 
+function App() {
 
     const [countryUrl, setCountryUrl] = useState(initialUrl);
     const [isRelativeValues, changeValuesTable1] = useState(false);
@@ -68,7 +68,7 @@ function App() {
             } else {
                 setTable1Head(table1PossibleHeaders.all);
             }
-            setTable1Data(table1DataPossibleAttrs.all);            
+            setTable1Data(table1DataPossibleAttrs.all);
             setToday(false);
         } else {
             if (isRelativeValues) {
@@ -76,15 +76,15 @@ function App() {
             } else {
                 setTable1Head(table1PossibleHeaders.today);
             }
-            setTable1Data(table1DataPossibleAttrs.today);            
+            setTable1Data(table1DataPossibleAttrs.today);
             setToday(true);
             console.log(isToday);
         }
     };
 
-    const update2Table1 = (switcherState: boolean) => {        
+    const update2Table1 = (switcherState: boolean) => {
         changeValuesTable1(switcherState);
-        if (!isRelativeValues) {            
+        if (!isRelativeValues) {
             console.log(isToday);
             if(isToday) {
                 setTable1Head(table1PossibleHeaders.relativeToday);
@@ -99,14 +99,14 @@ function App() {
                 setTable1Head(table1PossibleHeaders.all);
                 setToday(false);
             }
-        }        
+        }
     };
 
     return (
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-3 d-none d-md-block bg-light">
+                    <div className="col-md-3 d-md-block bg-light table-countries">
                         <TotalCases/>
                         <Table1 countryUrl={countryUrl}
                                 tableHead={table1Head}
@@ -119,7 +119,7 @@ function App() {
                     <div className="col-md-7 pt-3">
                         <Map />
                     </div>
-                    <div className="col-md-2 d-none d-md-block bg-light1">
+                    <div className="col-md-2 d-md-block bg-light1 table-countries">
                         <Table2 chooseCountry={chooseCountry}/>
                     </div>
                 </div>

@@ -1,9 +1,64 @@
 @import './../../variables';
 .table2 {
-    height: 75vh;
+    height: 82vh;
     @include table_background_gradient;
 }
 .maximise-wrapper {
     display: flex;
     justify-content: space-around;
+    background-color: rgb(0,197,0);
+}
+
+.select-country {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 6.5rem;
+
+}
+
+.table-point {
+    background: transparent;
+    border: none;
+    outline: none;
+
+}
+
+.title-wrapper {
+    display: flex;
+}
+
+.btn-outline-secondary {
+    padding: 0 0 0 0;
+
+    border-color: rgba(0,0,0,0)!important;
+}
+
+.btn-outline-secondary:hover {
+    background-color: rgba(0,0,0,0)!important;
+    transform: rotate(45deg);
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0)!important;
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+}
+
+.btn-outline-secondary:focus, .btn-outline-secondary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+}
+
+.input-group {
+    position: absolute;
+    top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 70%;
+}
+.input-group {
+    margin-top: 0;
 }
