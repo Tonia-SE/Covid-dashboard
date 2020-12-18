@@ -1,5 +1,5 @@
 import React from 'react';
-import { Maximise } from '../MaximiseButton';
+import { Maximize } from '../MaximiseButton';
 import { Form } from '../Form';
 import { Switcher } from '../Switcher';
 import { Spinner } from '../Spinner';
@@ -7,6 +7,9 @@ import { CountryName } from '../CountryName';
 import './table2.scss';
 
 interface Props {
+    setClassNameCol1: (className: string) => void;
+    setClassNameCol2: (className: string) => void;
+    setClassNameCol3:(className: string) => void;
     chooseCountry: ChooseCountry;
     updateTable1: (swithcerState: boolean) => void;
     changeValuesTable1: (swithcerState: boolean) => void;
@@ -54,7 +57,12 @@ export class Table2 extends React.Component<Props> {
                             <Switcher onChange={this.props.updateTable1} />
                             <Switcher onChange={this.props.changeValuesTable1}/>
                             <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
-                            <Maximise />
+                            <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
+                                        classNameCol2={"column col-md-6 d-none pt-3"}
+                                        classNameCol3={"column col-md-12 d-md-block bg-light1 table-countries"}
+                                        setClassNameCol1={this.props.setClassNameCol1}
+                                        setClassNameCol2={this.props.setClassNameCol2}
+                                        setClassNameCol3={this.props.setClassNameCol3}/>
                         </div>
                         <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                             <tbody>
@@ -76,7 +84,12 @@ export class Table2 extends React.Component<Props> {
                                 <Switcher onChange={this.props.updateTable1} />
                                 <Switcher onChange={this.props.changeValuesTable1}/>
                                 <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
-                                <Maximise />
+                                <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
+                                        classNameCol2={"column col-md-6 d-none pt-3"}
+                                        classNameCol3={"column col-md-12 d-md-block bg-light1 table-countries"}
+                                        setClassNameCol1={this.props.setClassNameCol1}
+                                        setClassNameCol2={this.props.setClassNameCol2}
+                                        setClassNameCol3={this.props.setClassNameCol3}/>
                             </div>
                             { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
                         </div>
@@ -110,7 +123,6 @@ export class Table2 extends React.Component<Props> {
                                             </td>
                                             <td>
                                                 {country[`${this.state.value}`]}
-
                                             </td>
                                         </tr>
                                     );

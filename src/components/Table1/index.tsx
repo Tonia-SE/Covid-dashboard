@@ -1,9 +1,10 @@
 import React from 'react';
 import { Switcher } from '../Switcher';
-import { Maximise } from '../MaximiseButton';
+import { Maximize } from '../MaximiseButton';
 import { Spinner } from '../Spinner';
 import { CountryName } from '../CountryName';
 import './table1.scss';
+import { initialClassNameCol1Table1 } from '../../App';
 
 
 interface Props {
@@ -21,6 +22,13 @@ interface Props {
     isRelativeValues: boolean,
     updateTable1: (swithcerState: boolean) => void,
     changeValuesTable1: (swithcerState: boolean) => void,
+    setClassNameCol1: (className: string) => void,
+    setClassNameCol2: (className: string) => void,
+    setClassNameCol3:(className: string) => void,
+    setClassNameCol1Total: (className: string) => void,
+    setClassNameCol1Table1: (className: string) => void,
+    setClassNameCol1Graph: (className: string) => void,
+    classNameCol1Table1: string,
 }
 
 interface State {
@@ -35,7 +43,8 @@ interface State {
     countryDetails: CountryDetails,
     summaryData: {
         [key: string]: number
-    }
+    },
+    classNameCol1Table1: string
 }
 
 export class Table1 extends React.Component<Props, State> {
@@ -70,7 +79,8 @@ export class Table1 extends React.Component<Props, State> {
             "recoveredPerOneMillion": 0,
             "criticalPerOneMillion": 0,
             "affectedCountries": 0
-        }
+        }, 
+        classNameCol1Table1: 'table-wrapper'
     }
 
     async componentDidUpdate(prevProps: Props) {
@@ -97,6 +107,9 @@ export class Table1 extends React.Component<Props, State> {
         if (prevProps.isRelativeValues !== this.props.isRelativeValues) {
             this.setState({ isRelativeValues: this.props.isRelativeValues });
         }
+        if (prevProps.classNameCol1Table1 !== this.props.classNameCol1Table1) {
+            this.setState({classNameCol1Table1: this.props.classNameCol1Table1});
+        }
     }
 
     async componentDidMount() {
@@ -115,12 +128,24 @@ export class Table1 extends React.Component<Props, State> {
         }
 
         return (
-            <div className="table-wrapper">
+            <div className={ this.state.classNameCol1Table1 }>
                 <div className="maximise-wrapper">
                     <Switcher onChange={this.props.updateTable1} />
                     <Switcher onChange={this.props.changeValuesTable1}/>
                     <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
-                    <Maximise />
+                    <Maximize classNameCol1={'column col-md-12 d-md-block bg-light table-countries'}
+                                classNameCol2={"column col-md-6 d-none pt-3"}
+                                classNameCol3={"column col-md-3 d-none bg-light1 table-countries"}
+                                setClassNameCol1={this.props.setClassNameCol1}
+                                setClassNameCol2={this.props.setClassNameCol2}
+                                setClassNameCol3={this.props.setClassNameCol3}
+                                classNameCol1Graph={'d-none'}
+                                classNameCol1Total={'d-none'}
+                                classNameCol1Table1={initialClassNameCol1Table1}
+                                setClassNameCol1Total={this.props.setClassNameCol1Total}
+                                setClassNameCol1Table1={this.props.setClassNameCol1Table1}
+                                setClassNameCol1Graph={this.props.setClassNameCol1Graph}
+                                />
                 </div>
                 <div className="table-responsive table1">
                     <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
