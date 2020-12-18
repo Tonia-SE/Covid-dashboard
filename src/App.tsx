@@ -8,13 +8,13 @@ import { TotalCases } from './components/TotalCases';
 
 //const initialUrl: string = "https://disease.sh/v3/covid-19/all";
 
-const initialCountryDetails:CountryDetails = {
+const initialCountryDetails: CountryDetails = {
     countryUrl: "https://disease.sh/v3/covid-19/all",
     countryFlag: '',
     countryName: '',
 };
 
-const table1PossibleHeaders:TableHeaders = {
+const table1PossibleHeaders: TableHeaders = {
     // Текст заголовков таблицы, можно менять на свое усмотрение
     all: {
         th1: 'Total cases',
@@ -116,7 +116,7 @@ function App() {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-3 d-md-block bg-light table-countries">
+                    <div className="column col-md-3 d-md-block bg-light table-countries">
                         <TotalCases/>
                         <Table1 countryDetails={countryDetails}
                                 tableHead={table1Head}
@@ -128,12 +128,12 @@ function App() {
                                 updateTable1={update1Table1}
                                 changeValuesTable1={update2Table1}/>
                     </div>
-                    <div className="col-md-7 pt-3">
+                    <div className="column col-md-6 pt-3">
                         <Map countryDetails={countryDetails}
                             updateTable1={update1Table1}
                             changeValuesTable1={update2Table1} />
                     </div>
-                    <div className="col-md-2 d-md-block bg-light1 table-countries">
+                    <div className="column col-md-3 d-md-block bg-light1 table-countries">
                         <Table2 chooseCountry={chooseCountry}
                             updateTable1={update1Table1}
                             changeValuesTable1={update2Table1}/>

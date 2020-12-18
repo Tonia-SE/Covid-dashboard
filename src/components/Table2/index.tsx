@@ -20,7 +20,8 @@ export class Table2 extends React.Component<Props> {
         value: 'cases',
         isFormVisible: false,
         selectedCountryName: '',
-        selectedCountryFlag: ''
+        selectedCountryFlag: '',
+        filterString: ''
     }
 
     async componentDidMount() {
@@ -49,7 +50,7 @@ export class Table2 extends React.Component<Props> {
             return (
                 <>
                     <div className="table-responsive table2 ">
-                        <div className="wrapper-form">                            
+                        <div className="wrapper-form">
                             <Switcher onChange={this.props.updateTable1} />
                             <Switcher onChange={this.props.changeValuesTable1}/>
                             <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
@@ -77,13 +78,16 @@ export class Table2 extends React.Component<Props> {
                                 <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
                                 <Maximise />
                             </div>
-                            { this.state.isFormVisible && <Form /> }
+                            { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
                         </div>
 
                         <table className="table table-striped table-sm ">
                             <thead>
                                 <tr>
-                                    <th> <div className='title-wrapper' onClick={() => {this.setState({isFormVisible: !this.state.isFormVisible});}}> <span>Country</span><button className="btn btn-outline-secondary" type="button">🔎</button></div></th>
+                                    <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
+                                            this.setState({isFormVisible: !this.state.isFormVisible});
+                                            this.setState({filterString: ''});}
+                                        } className="btn btn-outline-secondary" type="button">🔎</button></div></th>
                                     <th>
                                         <select className='select-country' onChange={(evt) => {this.setState({value: `${evt.target.value}`});}}>
                                             <option className='table-point' value='cases'>Total cases</option>
@@ -94,9 +98,9 @@ export class Table2 extends React.Component<Props> {
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.countriesData.map((country: Country) => {
+                                {this.state.countriesData.filter((country: Country) => {return country.country.includes(this.state.filterString);}).map((country: Country) => {
                                     return (
-                                        <tr key={country.country} onClick={() => {                                            
+                                        <tr key={country.country} onClick={() => {
                                             this.setState({selectedCountryName: country.country});
                                             this.setState({selectedCountryFlag: country.countryInfo.flag});
                                             this.props.chooseCountry(country);

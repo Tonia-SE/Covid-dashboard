@@ -125,23 +125,23 @@ export class Table1 extends React.Component<Props, State> {
                 <div className="table-responsive table1">
                     <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                         <thead>
-                            <tr>
-                                <th>{this.state.th1}</th>
-                                <th>{this.state.th2}</th>
-                                <th>{this.state.th3}</th>
+                            <tr className='table-cases-wrap'>
+                                <th className='cases-head'>{this.state.th1}</th>
+                                <th className='cases-head'>{this.state.th2}</th>
+                                <th className='cases-head'>{this.state.th3}</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 !this.state.loading &&
                                 (<tr>
-                                    <td>
+                                    <td className='cases-info'>
                                         {td1}
                                     </td>
-                                    <td>
+                                    <td className='cases-info'>
                                         {td2}
                                     </td>
-                                    <td>
+                                    <td className='cases-info'>
                                         {td3}
                                     </td>
                                 </tr>)
