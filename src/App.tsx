@@ -54,14 +54,35 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     }
 };
 
+export const initialClassNameCol1 = 'column col-md-3 d-md-block bg-light table-countries';
+export const initialClassNameCol2 = 'column col-md-6 pt-3';
+export const initialClassNameCol3 = 'column col-md-3 d-md-block bg-light1 table-countries';
+
+export const initialClassNameCol1Total = 'total-cases-wrapper';
+export const initialClassNameCol1Table1 = 'table-wrapper';
+export const initialClassNameCol1Graph = 'table-graph-wrapper';
+
+
+// async componentDidUpdate(prevProps: SwitcherProps) {
+//         if (prevProps.isGroupSwitched !== this.props.isGroupSwitched) {
+//             this.toggleStatus();
+//         }
+//     }
+
 function App() {
 
     const [countryDetails, setCountryDetails] = useState(initialCountryDetails);
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
-    const [switch1State, swithcGroup1] = useState(false);
+    // const [switch1State, swithcGroup1] = useState(false);
     const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
+    const [classNameCol1, setClassNameCol1] = useState(initialClassNameCol1);
+    const [classNameCol2, setClassNameCol2] = useState(initialClassNameCol2);
+    const [classNameCol3, setClassNameCol3] = useState(initialClassNameCol3);
+    const [classNameCol1Total, setClassNameCol1Total] = useState(initialClassNameCol1Total);
+    const [classNameCol1Table1, setClassNameCol1Table1] = useState(initialClassNameCol1Table1);
+    const [classNameCol1Graph, setClassNameCol1Graph] = useState(initialClassNameCol1Graph);
 
     const chooseCountry = (selectedCountry: Country) => {
         setCountryDetails({
@@ -116,27 +137,47 @@ function App() {
         <>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="column col-md-3 d-md-block bg-light table-countries">
-                        <TotalCases/>
+                    <div className={classNameCol1}>
+                        <TotalCases classNameCol1Total={classNameCol1Total}/>
                         <Table1 countryDetails={countryDetails}
                                 tableHead={table1Head}
                                 tableData={table1Data}
                                 isRelativeValues={isRelativeValues}
+                                classNameCol1Table1={classNameCol1Table1}
                                 updateTable1={update1Table1}
-                                changeValuesTable1={update2Table1} />
+                                changeValuesTable1={update2Table1}
+                                setClassNameCol1={setClassNameCol1}
+                                setClassNameCol2={setClassNameCol2}
+                                setClassNameCol3={setClassNameCol3}
+                                setClassNameCol1Total={setClassNameCol1Total}
+                                setClassNameCol1Table1={setClassNameCol1Table1}
+                                setClassNameCol1Graph={setClassNameCol1Graph}/>
                         <Graph countryDetails={countryDetails}
+                                classNameCol1Graph={classNameCol1Graph}
                                 updateTable1={update1Table1}
-                                changeValuesTable1={update2Table1}/>
+                                changeValuesTable1={update2Table1}
+                                setClassNameCol1={setClassNameCol1}
+                                setClassNameCol2={setClassNameCol2}
+                                setClassNameCol3={setClassNameCol3}
+                                setClassNameCol1Total={setClassNameCol1Total}
+                                setClassNameCol1Table1={setClassNameCol1Table1}
+                                setClassNameCol1Graph={setClassNameCol1Graph}/>
                     </div>
-                    <div className="column col-md-6 pt-3">
+                    <div className={classNameCol2}>
                         <Map countryDetails={countryDetails}
                             updateTable1={update1Table1}
-                            changeValuesTable1={update2Table1} />
+                            changeValuesTable1={update2Table1}
+                            setClassNameCol1={setClassNameCol1}
+                            setClassNameCol2={setClassNameCol2}
+                            setClassNameCol3={setClassNameCol3}/>
                     </div>
-                    <div className="column col-md-3 d-md-block bg-light1 table-countries">
+                    <div className={classNameCol3}>
                         <Table2 chooseCountry={chooseCountry}
                             updateTable1={update1Table1}
-                            changeValuesTable1={update2Table1}/>
+                            changeValuesTable1={update2Table1}
+                            setClassNameCol1={setClassNameCol1}
+                            setClassNameCol2={setClassNameCol2}
+                            setClassNameCol3={setClassNameCol3}/>
                     </div>
                 </div>
                 <div>
