@@ -6,39 +6,61 @@
     margin: .2rem .2rem .2rem .2rem;
 }
 
+
+
 .maximise-wrapper {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-wrap: wrap;
+    @include maximise-wrapper;
+}
+
+.switcher-wrapper {
+    @include switcher-wrapper;
 }
 
 .cases-head {
     text-align: center;
     color: #fff;
-    width: 2rem;
+    width: 1.5rem;
     font-size: 1.5rem;
 }
+
 .table th, .table td {
-    padding: 0.3;
+    padding: 0!important;
 }
 
 .cases-info {
     text-align: center;
     color: #fff;
-    width: 2rem;
-    font-size: 1.5rem;
+    width: 1rem;
+    font-size: 1.3rem!important;
 }
 
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .cases-head {
+        padding-left: .3rem!important;
         width: 2rem;
-        font-size: 0.7rem;
+        font-size: 1.5em;
     }
+
     .table th, .table td {
-        padding: 0.3;
+        padding: .3rem!important;
     }
+
+    .cases-info {
+        width: 2rem;
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .cases-head {
+        padding-left: .3rem!important;
+        width: 2rem;
+        font-size: 1.1rem;
+        width: 8rem;
+    }
+
 
     .cases-info {
         width: 2rem;

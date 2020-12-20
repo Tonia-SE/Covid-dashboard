@@ -1,0 +1,71 @@
+@import './../../variables';
+
+
+a {
+    text-decoration: none;
+    color: #fff;
+    line-height: 1.2rem;
+}
+
+a:hover {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.footer {
+
+    @include table_background_gradient;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.footer-copyright {
+    width: 15%
+}
+
+.footer-logo {
+    background-image: url('./../../assets/logo.png');
+    background-repeat: no-repeat;
+    height: 5rem;
+    width: 14%
+}
+
+.copyright-title {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+
+
+@media (max-width: 768px) {
+    .footer-logo {
+        width: 25%
+    }
+    .footer-copyright {
+        width: 30%
+    }
+
+}
+
+@media (max-width: 375px) {
+    .footer {
+        margin-top: 1rem;
+    }
+
+    .footer-logo {
+        background-size: 6rem;
+        width: 28%
+    }
+
+    .copyright-title {
+        font-size: 0.7rem;
+    }
+
+    .footer-copyright {
+        font-size: 0.7rem;
+        width: 66%
+    }
+}

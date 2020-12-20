@@ -2,12 +2,15 @@
 
 
 .table-graph-wrapper {
-    height: 40vh;
+    height: 45vh;
     @include table_background_gradient;
     margin: .2rem .2rem .2rem .2rem;
 }
 
 .maximise-wrapper {
-    display: flex;
-    justify-content: space-around;
+    @include maximise-wrapper;
+}
+
+.switcher-wrapper {
+    @include switcher-wrapper;
 }

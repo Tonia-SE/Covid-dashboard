@@ -37,3 +37,18 @@ $font-size-2: 1.2rem !important;
     text-align: center;
     font-size: 3rem;
 }
+
+@mixin maximise-wrapper {
+    height: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(80, 136, 189);
+}
+
+@mixin switcher-wrapper {
+    width: 6rem;
+
+    margin-top: 1rem;
+}

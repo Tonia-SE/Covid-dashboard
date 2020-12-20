@@ -1,8 +1,9 @@
 import React from "react";
+import "./CovidMap.scss";
 
 const Legend = ({ legendItems }) => {
   return (
-    <div
+    <div className="legend-row"
       style={{
         display: "flex",
         alignItems: "stretch",
