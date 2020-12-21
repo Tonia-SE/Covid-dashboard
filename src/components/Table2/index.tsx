@@ -5,7 +5,7 @@ import { Switcher } from '../Switcher';
 import { Spinner } from '../Spinner';
 import { CountryName } from '../CountryName';
 import './table2.scss';
-import { Country, CountryDetails } from 'src/type';
+import { Country, CountryDetails, TableHeaders } from 'src/type';
 
 interface Props {
     setClassNameCol1: (className: string) => void;
