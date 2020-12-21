@@ -109,7 +109,7 @@ export class Table2 extends React.Component<Props> {
                                     <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
                                             this.setState({isFormVisible: !this.state.isFormVisible});
                                             this.setState({filterString: ''});}
-                                        } className="btn btn-outline-secondary" type="button">🔎</button></div></th>
+                                        } className="btn btn-outline-secondary keyboard" type="button">⌨</button></div></th>
                                     <th>
                                         <select className='select-country' onChange={(evt) => {this.setState({value: `${evt.target.value}`});}}>
                                             <option className='table-point' value='cases'>Total cases</option>
@@ -133,7 +133,7 @@ export class Table2 extends React.Component<Props> {
                                             this.props.setCountryDetails(countryDetails);
                                         }}>
                                             <td >
-                                                <img src={country.countryInfo.flag} style={{ border:5, height:'13%'}}/> {country.country}
+                                                <img className='flag' src={country.countryInfo.flag}/> {country.country}
                                             </td>
                                             <td>
                                                 {country[`${this.state.value}`]}

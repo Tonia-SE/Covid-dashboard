@@ -9,6 +9,8 @@ import { CountryDetails, TableHeaders, TableDataPossibleAttrs } from './type';
 
 //const initialUrl: string = "https://disease.sh/v3/covid-19/all";
 
+const graphInitialURL: string = "https://disease.sh/v3/covid-19/historical/all?lastdays=100";
+
 const initialCountryDetails: CountryDetails = {
     countryUrl: "https://disease.sh/v3/covid-19/all",
     countryFlag: '',
@@ -55,8 +57,8 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     }
 };
 
-export const initialClassNameCol1 = 'column-1 col-xl-2 col-lg-6 col-md-6 d-md-block bg-light table-countries';
-export const initialClassNameCol2 = 'column-2 col-xl-8 col-lg-12 col-md-12 pt-3';
+export const initialClassNameCol1 = 'column-1 col-xl-4 col-lg-6 col-md-6 d-md-block bg-light table-countries';
+export const initialClassNameCol2 = 'column-2 col-xl-6 col-lg-12 col-md-12 pt-3';
 export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-6 col-md-6 d-md-block bg-light1 table-countries';
 
 export const initialClassNameCol1Total = 'total-cases-wrapper';
@@ -75,6 +77,7 @@ function App() {
     const [countryDetails, setCountryDetails] = useState(initialCountryDetails);
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
+    const [graphURL, setGraphURL] = useState(graphInitialURL);
     // const [switch1State, swithcGroup1] = useState(false);
     const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
@@ -155,7 +158,9 @@ function App() {
                                 setClassNameCol3={setClassNameCol3}
                                 setClassNameCol1Total={setClassNameCol1Total}
                                 setClassNameCol1Table1={setClassNameCol1Table1}
-                                setClassNameCol1Graph={setClassNameCol1Graph}/>
+                                setClassNameCol1Graph={setClassNameCol1Graph}
+                                graphURL={graphURL}
+                                parameter={table1Data.td1}/>
                     </div>
                     <div className={classNameCol2}>
                         <Map countryDetails={countryDetails}

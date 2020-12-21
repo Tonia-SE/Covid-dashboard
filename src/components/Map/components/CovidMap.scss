@@ -2,23 +2,21 @@
   background: radial-gradient(ellipse at center, rgba(8, 224, 211, 0.9) 0%, rgba(25, 128, 189, 0.9) 51%, rgba(0, 197, 148, 0.8) 100%);
 }
 
-
 .leaflet-tooltip {
 	padding: 6px;
-	background-color: rgb(100, 122, 245);
-	border: 1px solid rgb(0, 2, 110);
+	background-color: #24bb1f;
+	border: 2px solid #6bfc66;
 	border-radius: 5px;
   color: rgba(255, 255, 255, 1);
   font-weight: bold;
 }
 
 .leaflet-interactive:hover {
-	fill: rgb(217, 255, 0);
+	fill: #ee3838;
 }
 
 @media (max-width: 1024px) {
-    .map-container {
-        height: 40vh!important;
-    }
-
+  .map-container {
+    height: 40vh !important;
+  }
 }

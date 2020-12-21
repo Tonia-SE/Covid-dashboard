@@ -3,6 +3,7 @@
     height: 86vh;
     @include table_background_gradient;
 }
+
 .maximise-wrapper {
     @include maximise-wrapper;
 }
@@ -12,12 +13,11 @@
 }
 
 .select-country {
-    color: #fff;
+    color: rgb(255, 255, 255);
     background: transparent;
     border: none;
     outline: none;
     width: 9rem;
-
 }
 
 .maximise-style {
@@ -38,17 +38,17 @@
 
 .title-wrapper {
     display: flex;
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
 .btn-outline-secondary {
-    padding: 0 0 0 0;
+    padding: 0 0 0 0.5vw !important;
     border-color: rgba(0,0,0,0)!important;
 }
 
 .btn-outline-secondary:hover {
     background-color: rgba(0,0,0,0)!important;
-    transform: rotate(45deg);
+    transform: scale(1.1);
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
@@ -76,4 +76,11 @@
     margin-top: 0;
 }
 
+.flag {
+    height: 2vh !important;
+}
+
+.keyboard {
+    color: white;
+}
 
