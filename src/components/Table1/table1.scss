@@ -6,7 +6,9 @@
     margin: .2rem .2rem .2rem .2rem;
 }
 
-
+.maximise-style {
+    margin: 0 auto !important;
+}
 
 .maximise-wrapper {
     @include maximise-wrapper;

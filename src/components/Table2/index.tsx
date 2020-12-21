@@ -59,15 +59,17 @@ export class Table2 extends React.Component<Props> {
                 <>
                     <div className="table2 ">
                         <div className="wrapper-form">
+                            <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
                             <Switcher onChange={this.props.updateTable1} />
                             <Switcher onChange={this.props.changeValuesTable1}/>
-                            <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
                             <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
-                                        classNameCol2={"column col-md-6 d-none pt-3"}
-                                        classNameCol3={"column col-md-12 d-md-block bg-light1 table-countries"}
+                                        classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
+                                        classNameCol2={"column col-md-3 d-none pt-3"}
+                                        
                                         setClassNameCol1={this.props.setClassNameCol1}
+                                        setClassNameCol3={this.props.setClassNameCol3}
                                         setClassNameCol2={this.props.setClassNameCol2}
-                                        setClassNameCol3={this.props.setClassNameCol3}/>
+                                        />
                         </div>
                         <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                             <tbody>
@@ -85,18 +87,18 @@ export class Table2 extends React.Component<Props> {
                     <div className="table-responsive table2">
                         <div className="wrapper-countries">
                             <div className="maximise-wrapper">
+                                <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
                                 <div className="switcher-wrapper">
                                     <Switcher onChange={this.props.updateTable1} />
                                     <Switcher onChange={this.props.changeValuesTable1}/>
                                 </div>
-                                <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
-
-                                <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
-                                        classNameCol2={"column col-md-6 d-none pt-3"}
-                                        classNameCol3={"column col-md-12 d-md-block bg-light1 table-countries"}
+                                <Maximize classNameCol1={'column col-md-3 bg-light table-countries d-none'}
+                                        classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
+                                        classNameCol2={"column col-md-3 pt-3 d-none"}
                                         setClassNameCol1={this.props.setClassNameCol1}
+                                        setClassNameCol3={this.props.setClassNameCol3}
                                         setClassNameCol2={this.props.setClassNameCol2}
-                                        setClassNameCol3={this.props.setClassNameCol3}/>
+                                        />
                             </div>
                             { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
                         </div>

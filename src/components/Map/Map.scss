@@ -4,6 +4,9 @@
     @include title-table;
 }
 
+.maximise-style {
+    margin: 0 auto !important;
+}
 
 @media (max-width: 375px) {
     .h2 {
