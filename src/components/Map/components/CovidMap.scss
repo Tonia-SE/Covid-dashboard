@@ -7,12 +7,12 @@
 	background-color: #24bb1f;
 	border: 2px solid #6bfc66;
 	border-radius: 5px;
-  color: rgba(255, 255, 255, 1);
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
 
 .leaflet-interactive:hover {
-	fill: #ee3838;
+	fill: rgb(214, 29, 29);
 }
 
 @media (max-width: 1024px) {
