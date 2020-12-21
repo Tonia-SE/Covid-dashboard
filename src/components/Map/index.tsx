@@ -48,9 +48,9 @@ export class Map extends React.Component<Props> {
         const name = country.properties.ADMIN;
         const textToDisplay = country.properties[this.props.tableData.td1];
         layer.on({click: ()=>{
-            console.log(country.properties.ADMIN);
             const countryDetails = {
             countryUrl: `https://disease.sh/v3/covid-19/countries/${country.properties.ISO_A3}`,
+            graphURL: `https://disease.sh/v3/covid-19/historical/${country.properties.ISO_A3}?lastdays=100`,
             countryFlag: country.properties.flag,
             countryName: country.properties.ADMIN,                                                
             };

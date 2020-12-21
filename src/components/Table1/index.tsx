@@ -151,7 +151,12 @@ export class Table1 extends React.Component<Props, State> {
                                 />
                 </div>
                 <div className="table-responsive table1">
-                    <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
+                    {
+                        this.state.loading && <div className="Loading"><Spinner /></div>
+                    }
+                    {
+                        !this.state.loading &&
+                    (<table className="stat-table table table-hover table-responsive-md table-responsive-sm">
                         <thead>
                             <tr className='table-cases-wrap'>
                                 <th className='cases-head'>{this.state.th1}</th>
@@ -160,25 +165,20 @@ export class Table1 extends React.Component<Props, State> {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                !this.state.loading &&
-                                (<tr>
-                                    <td className='cases-info'>
-                                        {td1}
-                                    </td>
-                                    <td className='cases-info'>
-                                        {td2}
-                                    </td>
-                                    <td className='cases-info'>
-                                        {td3}
-                                    </td>
-                                </tr>)
-                            }
-                            {
-                                this.state.loading && <div className="Loading"><Spinner /></div>
-                            }
+                            <tr>
+                                <td className='cases-info'>
+                                    {td1}
+                                </td>
+                                <td className='cases-info'>
+                                    {td2}
+                                </td>
+                                <td className='cases-info'>
+                                    {td3}
+                                </td>
+                            </tr>
                         </tbody>
-                    </table>
+                    </table>)
+                    }
                 </div>
             </div>
         );
