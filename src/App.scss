@@ -3,20 +3,6 @@ body{
   background-image: url('./assets/covid-back.jpg');
 }
 
-@media (min-width: 1200px) {
-  .body{
-      width: 1199px;
-      margin: 0 auto;
-      background-color: rgba(42, 163, 163, 0.3);
-  }
-}
-@media (max-width: 1199px) {
-  .body{
-      background-color: rgba(42, 163, 163, 0.3);
-  }
-}
-
-
 
 
 
@@ -27,65 +13,6 @@ body{
 
 
 
-
-// -----------------------SWITCHER BUTTON
-// .second-wrapper-btns {
-//   display: inline-block;
-// }
-// .switch {
-//   position: relative;
-//   display: inline-block;
-//   width: 60px;
-//   height: 34px;
-//   margin-bottom: 0;
-// }
-// .switch input {
-//   display:none;
-// }
-// .slider {
-//   position: absolute;
-//   cursor: pointer;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   background-color: $color-3;
-//   -webkit-transition: .4s;
-//   transition: .4s;
-//   border: solid 1px $color-5;
-// }
-// .slider:before {
-//   position: absolute;
-//   content: "";
-//   height: 28px;
-//   width: 28px;
-//   left: 2px;
-//   bottom: 2px;
-//   top: 2px;
-//   right: 2px;
-//   background-color: rgba(246, 255, 254, 0.911);
-//   -webkit-transition: .4s;
-//   transition: .4s;
-//   border: solid 1px $color-6;
-// }
-// input:checked + .slider {
-//   background-color: $color-4;
-// }
-// input:focus + .slider {
-//   box-shadow: 0 0 1px $color-4;
-// }
-// input:checked + .slider:before {
-//   -webkit-transform: translateX(26px);
-//   -ms-transform: translateX(26px);
-//   transform: translateX(26px);
-// }
-// .slider.round {
-//   border-radius: 34px;
-// }
-// .slider.round:before {
-//   border-radius: 50%;
-// }
-
 .graph{
   height: 25%;
   width: 100%;
@@ -93,12 +20,6 @@ body{
   justify-content: center;
   align-items: center;
 }
-
-
-
-
-
-
 
 // ----------------FOOTER
 .page-footer {
@@ -127,6 +48,45 @@ body{
 }
 
 
+@media (min-width: 1200px) {
+    .body{
+        width: 1199px;
+        margin: 0 auto;
+        background-color: rgba(42, 163, 163, 0.3);
+    }
+  }
+
+
+
+
+@media (max-width: 1024px) {
+    .row {
+        flex-wrap: wrap;
+    }
+
+    .table-countries {
+        margin-top: 6rem!important;
+    }
+
+    .column-1{
+        margin-top: 6rem;
+        order:1;
+    }
+
+    .column-3{
+        margin-top: 6rem;
+    }
+
+    .column-2{
+        order:0;
+        height: 50vh;
+    }
+}
+
+
+
+
+
 
 
 @media (max-width: 768px) {
@@ -143,12 +103,12 @@ body{
       padding: 0 20px 0 20px !important;
   }
 
-  .row>:nth-child(1){
+  .column-1 {
     order:1;
-}
+    }
 
-    .row>:nth-child(2){
-        order:0;
+    .column-2 {
+    order:0;
     }
 }
 

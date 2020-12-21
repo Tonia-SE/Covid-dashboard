@@ -30,6 +30,7 @@ export class Table2 extends React.Component<Props> {
     async componentDidMount() {
         const url = "https://disease.sh/v3/covid-19/countries";
         const data = await fetch(url).then(res => res.json());
+        console.log('data', data);
 
         data.sort((a:Country, b:Country) => {
             // Use toUpperCase() to ignore character casing
@@ -52,7 +53,7 @@ export class Table2 extends React.Component<Props> {
         if (this.state.loading) {
             return (
                 <>
-                    <div className="table-responsive table2 ">
+                    <div className="table2 ">
                         <div className="wrapper-form">
                             <Switcher onChange={this.props.updateTable1} />
                             <Switcher onChange={this.props.changeValuesTable1}/>
@@ -81,9 +82,12 @@ export class Table2 extends React.Component<Props> {
                     <div className="table-responsive table2">
                         <div className="wrapper-countries">
                             <div className="maximise-wrapper">
-                                <Switcher onChange={this.props.updateTable1} />
-                                <Switcher onChange={this.props.changeValuesTable1}/>
+                                <div className="switcher-wrapper">
+                                    <Switcher onChange={this.props.updateTable1} />
+                                    <Switcher onChange={this.props.changeValuesTable1}/>
+                                </div>
                                 <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
+
                                 <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
                                         classNameCol2={"column col-md-6 d-none pt-3"}
                                         classNameCol3={"column col-md-12 d-md-block bg-light1 table-countries"}
@@ -94,7 +98,7 @@ export class Table2 extends React.Component<Props> {
                             { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
                         </div>
 
-                        <table className="table table-striped table-sm ">
+                        <table className="table-responsive table table-striped table-sm ">
                             <thead>
                                 <tr>
                                     <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
@@ -113,7 +117,7 @@ export class Table2 extends React.Component<Props> {
                             <tbody>
                                 {this.state.countriesData.filter((country: Country) => {return country.country.includes(this.state.filterString);}).map((country: Country) => {
                                     return (
-                                        <tr key={country.country} onClick={() => {
+                                        <tr className='table-cell' key={country.country} onClick={() => {
                                             this.setState({selectedCountryName: country.country});
                                             this.setState({selectedCountryFlag: country.countryInfo.flag});
                                             this.props.chooseCountry(country);

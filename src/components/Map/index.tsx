@@ -10,14 +10,14 @@ interface Props {
     countryDetails: CountryDetails;
     updateTable1: (swithcerState: boolean) => void;
     changeValuesTable1: (swithcerState: boolean) => void;
-    
+
     //] = useState('column col-md-3 d-md-block bg-light table-countries')
     //useState("column col-md-12 pt-3");
     //useState("column col-md-3 d-md-block bg-light1 table-countries");
     setClassNameCol1: (className: string) => void;
     setClassNameCol2: (className: string) => void;
     setClassNameCol3:(className: string) => void;
-} 
+}
 
 export class Map extends React.Component<Props> {
     state = {
@@ -34,8 +34,10 @@ export class Map extends React.Component<Props> {
                 <h1 className="h2">COVID-19 Dashboard</h1>
                 <div className="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <div className="maximise-wrapper">
-                        <Switcher onChange={this.props.updateTable1} />
-                        <Switcher onChange={this.props.changeValuesTable1}/>
+                        <div className="switcher-wrapper">
+                            <Switcher onChange={this.props.updateTable1} />
+                            <Switcher onChange={this.props.changeValuesTable1}/>
+                        </div>
                         <Maximize classNameCol1={'column d-none bg-light table-countries'}
                                     classNameCol2={"column col-md-12 pt-3"}
                                     classNameCol3={"column d-none bg-light1 table-countries"}

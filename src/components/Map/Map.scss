@@ -3,3 +3,11 @@
     @include table_background_gradient;
     @include title-table;
 }
+
+
+@media (max-width: 375px) {
+    .h2 {
+        font-size: 1.5rem;
+    }
+
+}

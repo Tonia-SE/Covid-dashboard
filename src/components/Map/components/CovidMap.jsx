@@ -1,7 +1,7 @@
 import React from "react";
 import { MapContainer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "./CovidMap.css";
+import "./CovidMap.scss";
 const CovidMap = ({ countries }) => {
   const mapStyle = {
     fillColor: "white",
@@ -25,7 +25,7 @@ const CovidMap = ({ countries }) => {
   };
 
   return (
-    <MapContainer style={{ height: "70vh" }} zoom={2} center={[20, 20]}>
+    <MapContainer className="map-container" style={{ height: "70vh" }} zoom={2} center={[20, 20]}>
       <GeoJSON
         style={mapStyle}
         data={countries}

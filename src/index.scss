@@ -16,7 +16,9 @@ code {
     monospace;
 }
 
-.col-md-3 {
+.column-1,
+.column-2,
+.column-3 {
   background-image: url('./assets/covid-back.jpg');
 }
 
@@ -29,7 +31,9 @@ code {
     margin-top: 1rem;
 }
 
-.column {
+.column-1,
+.column-2,
+.column-3 {
     padding-left: 6px!important;
     padding-right: 6px!important;
 }

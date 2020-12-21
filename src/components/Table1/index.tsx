@@ -79,7 +79,7 @@ export class Table1 extends React.Component<Props, State> {
             "recoveredPerOneMillion": 0,
             "criticalPerOneMillion": 0,
             "affectedCountries": 0
-        }, 
+        },
         classNameCol1Table1: 'table-wrapper'
     }
 
@@ -130,8 +130,10 @@ export class Table1 extends React.Component<Props, State> {
         return (
             <div className={ this.state.classNameCol1Table1 }>
                 <div className="maximise-wrapper">
-                    <Switcher onChange={this.props.updateTable1} />
-                    <Switcher onChange={this.props.changeValuesTable1}/>
+                    <div className="switcher-wrapper">
+                        <Switcher onChange={this.props.updateTable1} />
+                        <Switcher onChange={this.props.changeValuesTable1}/>
+                    </div>
                     <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                     <Maximize classNameCol1={'column col-md-12 d-md-block bg-light table-countries'}
                                 classNameCol2={"column col-md-6 d-none pt-3"}

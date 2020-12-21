@@ -1,31 +1,41 @@
 @import './../../variables';
 .table2 {
-    height: 82vh;
+    height: 86vh;
     @include table_background_gradient;
 }
 .maximise-wrapper {
-    display: flex;
-    justify-content: space-around;
-    background-color: rgb(80, 136, 189);
+    @include maximise-wrapper;
+}
+
+.switcher-wrapper {
+    @include switcher-wrapper;
 }
 
 .select-country {
+    color: #fff;
     background: transparent;
     border: none;
     outline: none;
-    width: 6.5rem;
+    width: 9rem;
 
 }
 
 .table-point {
+    color: #000;
+    font-size: 0.7rem;
     background: transparent;
     border: none;
     outline: none;
 
 }
 
+.table-cell {
+    color: #fff;
+}
+
 .title-wrapper {
     display: flex;
+    color: #fff;
 }
 
 .btn-outline-secondary {
@@ -62,3 +72,5 @@
 .input-group {
     margin-top: 0;
 }
+
+

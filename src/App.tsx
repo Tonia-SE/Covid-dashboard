@@ -54,9 +54,9 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     }
 };
 
-export const initialClassNameCol1 = 'column col-md-3 d-md-block bg-light table-countries';
-export const initialClassNameCol2 = 'column col-md-6 pt-3';
-export const initialClassNameCol3 = 'column col-md-3 d-md-block bg-light1 table-countries';
+export const initialClassNameCol1 = 'column-1 col-xl-2 col-lg-6 col-md-6 d-md-block bg-light table-countries';
+export const initialClassNameCol2 = 'column-2 col-xl-8 col-lg-12 col-md-12 pt-3';
+export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-6 col-md-6 d-md-block bg-light1 table-countries';
 
 export const initialClassNameCol1Total = 'total-cases-wrapper';
 export const initialClassNameCol1Table1 = 'table-wrapper';
@@ -180,9 +180,9 @@ function App() {
                             setClassNameCol3={setClassNameCol3}/>
                     </div>
                 </div>
-                <div>
+
                     <Footer />
-                </div>
+
             </div>
         </>
     );
