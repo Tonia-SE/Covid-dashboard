@@ -78,8 +78,8 @@ export class Graph extends React.Component<Props> {
                     label: `Total ${this.state.parameter}`,
                     fill: false,
                     lineTension: 0,
-                    backgroundColor: 'rgba(0,197,0,0.8)',
-                    borderColor: "rgb(32, 102, 0)",
+                    backgroundColor: 'rgb(214, 29, 29)',
+                    borderColor: "rgb(214, 29, 29)",
                     borderWidth: 0.5,
                     data: Object.values(data[this.state.parameter])
                 }
@@ -115,6 +115,12 @@ export class Graph extends React.Component<Props> {
                 <div className="graph">
                     <Line data={this.state.graphData} height={165}
                         options={{
+                            elements: {
+                                point: {
+                                    radius: 2,
+                                    hoverRadius: 7,
+                                },
+                            },
                             scales: {
                                 yAxes: [{
                                     ticks: {
