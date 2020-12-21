@@ -26,10 +26,16 @@ a:hover {
 
     @include table_background_gradient;
     display: flex;
+    position: relative;
+    bottom: 0;
     justify-content: space-around;
     align-items: center;
     margin-top: 1rem;
+    margin-left: -5px;
+    margin-right: -5px;
+    margin-bottom: 5px;
     min-height: 5rem;
+    flex-grow: 1;
 }
 
 .copyright-title {
@@ -60,11 +66,6 @@ a:hover {
  background-size: contain;
 }
 
-.link-rs{
-  padding-left: 55px;
-  margin-right: 30px;
-}
-
 .link-rs::before{
  display: block;
  position: absolute;
@@ -72,7 +73,7 @@ a:hover {
  width: 50px;
  height: 20px;
  top: -10px;
- left: 0;
+ left: -10px;
  background-image: url('./../../assets/rs-logo.svg');
  background-repeat: no-repeat;
  background-size: contain;
@@ -83,22 +84,21 @@ a:hover {
 @media (max-width: 768px) {
 
     .footer-copyright {
-        width: 30%
+        flex-direction: column;
+        height: 10rem;
+        font-size: 0.7rem;
     }
-
 }
 
 @media (max-width: 375px) {
-    .footer {
-        margin-top: 1rem;
-    }
 
     .copyright-title {
         font-size: 0.7rem;
     }
 
     .footer-copyright {
+        
         font-size: 0.7rem;
-        width: 66%
+        padding-bottom: 1rem;
     }
 }
