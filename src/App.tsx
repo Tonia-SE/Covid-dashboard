@@ -5,6 +5,7 @@ import { Map } from './components/Map';
 import { Table2 } from './components/Table2';
 import { Footer } from './components/Footer';
 import { TotalCases } from './components/TotalCases';
+import { CountryDetails, TableHeaders, TableDataPossibleAttrs } from './type';
 
 //const initialUrl: string = "https://disease.sh/v3/covid-19/all";
 
@@ -19,25 +20,25 @@ const table1PossibleHeaders: TableHeaders = {
     all: {
         th1: 'Total cases',
         th2: 'Total deaths',
-        th3: 'Total healed'
+        th3: 'Total recovered'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     today: {
         th1: 'Today\'s cases',
         th2: 'Today\'s deaths',
-        th3: 'Today\'s healed'
+        th3: 'Today\'s recovered'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     relativeAll: {
         th1: 'Cases per   100 000',
         th2: 'Deaths per  100 000',
-        th3: 'Healed per  100 000'
+        th3: 'Recovered per  100 000'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     relativeToday: {
         th1: 'Today\'s cases per 100 000',
         th2: 'Today\'s deaths per 100 000',
-        th3: 'Today\'s healed per 100 000'
+        th3: 'Today\'s recovered per 100 000'
     },
 };
 
@@ -83,14 +84,7 @@ function App() {
     const [classNameCol1Total, setClassNameCol1Total] = useState(initialClassNameCol1Total);
     const [classNameCol1Table1, setClassNameCol1Table1] = useState(initialClassNameCol1Table1);
     const [classNameCol1Graph, setClassNameCol1Graph] = useState(initialClassNameCol1Graph);
-
-    const chooseCountry = (selectedCountry: Country) => {
-        setCountryDetails({
-            countryUrl: `https://disease.sh/v3/covid-19/countries/${selectedCountry.countryInfo.iso3}`,
-            countryFlag: selectedCountry.countryInfo.flag,
-            countryName: selectedCountry.country,
-        });
-    };
+    const [countries, setCountries] = useState([{}]);
 
     const update1Table1 = (switcherState: boolean) => {
         if (!switcherState) {
@@ -166,18 +160,24 @@ function App() {
                     <div className={classNameCol2}>
                         <Map countryDetails={countryDetails}
                             updateTable1={update1Table1}
+                            tableData={table1Data}
                             changeValuesTable1={update2Table1}
                             setClassNameCol1={setClassNameCol1}
                             setClassNameCol2={setClassNameCol2}
-                            setClassNameCol3={setClassNameCol3}/>
+                            setClassNameCol3={setClassNameCol3}
+                            countries={countries}
+                            setCountryDetails={setCountryDetails}/>
                     </div>
                     <div className={classNameCol3}>
-                        <Table2 chooseCountry={chooseCountry}
+                        <Table2 setCountryDetails={setCountryDetails}
                             updateTable1={update1Table1}
                             changeValuesTable1={update2Table1}
                             setClassNameCol1={setClassNameCol1}
                             setClassNameCol2={setClassNameCol2}
-                            setClassNameCol3={setClassNameCol3}/>
+                            setClassNameCol3={setClassNameCol3}
+                            setCountries={setCountries}
+                            countryDetails={countryDetails}
+                            />
                     </div>
                 </div>
 
