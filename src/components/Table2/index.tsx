@@ -5,14 +5,17 @@ import { Switcher } from '../Switcher';
 import { Spinner } from '../Spinner';
 import { CountryName } from '../CountryName';
 import './table2.scss';
+import { Country, CountryDetails } from 'src/type';
 
 interface Props {
     setClassNameCol1: (className: string) => void;
     setClassNameCol2: (className: string) => void;
     setClassNameCol3:(className: string) => void;
-    chooseCountry: ChooseCountry;
+    setCountries: (countries: Array<Object>) => void;
+    setCountryDetails: (countries: CountryDetails) => void;
     updateTable1: (swithcerState: boolean) => void;
     changeValuesTable1: (swithcerState: boolean) => void;
+    countryDetails: CountryDetails;
 }
 
 export class Table2 extends React.Component<Props> {
@@ -46,6 +49,7 @@ export class Table2 extends React.Component<Props> {
         });
 
         this.setState({countriesData: data, loading: false });
+        this.props.setCountries(data);
     }
 
     render() {
@@ -57,7 +61,7 @@ export class Table2 extends React.Component<Props> {
                         <div className="wrapper-form">
                             <Switcher onChange={this.props.updateTable1} />
                             <Switcher onChange={this.props.changeValuesTable1}/>
-                            <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
+                            <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
                             <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
                                         classNameCol2={"column col-md-6 d-none pt-3"}
                                         classNameCol3={"column col-md-12 d-md-block bg-light1 table-countries"}
@@ -78,7 +82,6 @@ export class Table2 extends React.Component<Props> {
         if (!this.state.loading) {
             return (
                 <>
-
                     <div className="table-responsive table2">
                         <div className="wrapper-countries">
                             <div className="maximise-wrapper">
@@ -86,7 +89,7 @@ export class Table2 extends React.Component<Props> {
                                     <Switcher onChange={this.props.updateTable1} />
                                     <Switcher onChange={this.props.changeValuesTable1}/>
                                 </div>
-                                <CountryName countryName={this.state.selectedCountryName} countryFlag={this.state.selectedCountryFlag} />
+                                <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
 
                                 <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
                                         classNameCol2={"column col-md-6 d-none pt-3"}
@@ -120,7 +123,12 @@ export class Table2 extends React.Component<Props> {
                                         <tr className='table-cell' key={country.country} onClick={() => {
                                             this.setState({selectedCountryName: country.country});
                                             this.setState({selectedCountryFlag: country.countryInfo.flag});
-                                            this.props.chooseCountry(country);
+                                            const countryDetails: CountryDetails = {
+                                                countryUrl: `https://disease.sh/v3/covid-19/countries/${country.countryInfo.iso3}`,
+                                                countryFlag: country.countryInfo.flag,
+                                                countryName: country.country,                                                
+                                            };
+                                            this.props.setCountryDetails(countryDetails);
                                         }}>
                                             <td >
                                                 <img src={country.countryInfo.flag} style={{ border:5, height:'13%'}}/> {country.country}

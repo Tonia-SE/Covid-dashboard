@@ -1,7 +1,7 @@
 @import './../../variables';
 
 .table-wrapper {
-    height: 20vh;
+    height: 18vh;
     @include table_background_gradient;
     margin: .2rem .2rem .2rem .2rem;
 }

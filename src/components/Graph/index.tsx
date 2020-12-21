@@ -5,6 +5,7 @@ import { CountryName } from '../CountryName';
 import { initialClassNameCol1Graph } from '../../App';
 
 import './graph.scss';
+import { CountryDetails } from 'src/type';
 
 interface Props {
     countryDetails: CountryDetails;

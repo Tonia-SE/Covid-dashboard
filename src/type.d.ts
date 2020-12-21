@@ -1,3 +1,5 @@
+import { FeatureGroup } from "react-leaflet";
+
 interface GlobalData {
     "NewConfirmed": Number,
     "TotalConfirmed": Number,
@@ -94,4 +96,33 @@ interface CountryDetails {
     countryUrl: string,
     countryFlag: string,
     countryName: string
+}
+
+interface Features {
+    type: FeatureGroup,
+    features: [
+        {type: string,
+        properties: {
+            ADMIN: string,
+            ISO_A3: string,
+            cases : string;
+            casesColor : string;
+            todayCases : string;
+            todayCasesColor : string;
+            deaths : string;
+            deathsColor : string;
+            todayDeaths : string;
+            todayDeathsColor : string;
+            recovered : string;
+            recoveredColor : string;
+            todayRecovered : string;
+            todayRecoveredColor : string;
+            flag: string;
+
+        }
+        geometry: {
+            type: string
+            coordinates: Array<Array<Array<number>>>
+        }}
+    ]
 }
