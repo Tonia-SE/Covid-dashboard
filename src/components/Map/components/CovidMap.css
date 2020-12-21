@@ -11,3 +11,7 @@
   color: rgba(255, 255, 255, 1);
   font-weight: bold;
 }
+
+.leaflet-interactive:hover {
+	fill: rgb(217, 255, 0);
+}
