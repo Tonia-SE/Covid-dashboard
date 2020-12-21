@@ -12,6 +12,11 @@
   font-weight: bold;
 }
 
+.leaflet-interactive:hover {
+	fill: rgb(217, 255, 0);
+}
+
+
 @media (max-width: 1024px) {
     .map-container {
         height: 40vh!important;
