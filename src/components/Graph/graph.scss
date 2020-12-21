@@ -18,3 +18,10 @@
 .maximise-style {
     margin: 0 auto !important;
 }
+
+.graph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}

@@ -15,7 +15,6 @@ export class CountryName extends React.Component<Props> {
     }
 
     async componentDidUpdate(prevProps: Props) {
-        console.log('xxxxxxxxxxxxxxxxxxxxxx');
         if (prevProps.countryName !== this.props.countryName) {
             this.setState({countryName : this.props.countryName});
             this.setState({countryFlag : this.props.countryFlag});

@@ -6,7 +6,7 @@ import "./CovidMap.scss";
 
 // Нужно настроить работу с props { countries, setCountryDetails, parameter }
 // parameter должен сохраняться в state и нужно отслеживать его изменение
-class CovidMap1 extends React.Component {
+class CovidMap extends React.Component {
 
   constructor(props) {    
     super(props);
@@ -22,11 +22,17 @@ class CovidMap1 extends React.Component {
     fillOpacity: 1,
   };
 
-  onEachCountry(country, layer) {
-    layer.options.fillColor = country.properties[`${this.props.parameter}Color`];
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.parameter !== this.props.parameter) {
+      this.setState({parameter: this.props.parameter});
+    }
+  };
+
+  onEachCountry = (country, layer) => {
+    layer.options.fillColor = country.properties[`${this.state.parameter}Color`];
     const name = country.properties.ADMIN;
-    const textToDisplay = country.properties[this.props.parameter];
-    layer.on({click: ()=>{
+    const textToDisplay = country.properties[this.state.parameter];
+    layer.on({click: () => {
       console.log(country.properties.ADMIN);
       const countryDetails = {
         countryUrl: `https://disease.sh/v3/covid-19/countries/${country.properties.ISO_A3}`,
@@ -60,7 +66,7 @@ class CovidMap1 extends React.Component {
 
 
 // Не удалось подтянуть это в tsx, потому что не уадалось описать тип данных для GeoJSON data
-const CovidMap = ({ countries, setCountryDetails, parameter }) => {
+const CovidMap2 = ({ countries, setCountryDetails, parameter }) => {
 
   const mapStyle = {
     fillColor: "white",
