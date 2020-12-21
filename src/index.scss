@@ -15,10 +15,8 @@ code {
     monospace;
 }
 
-.column-1,
-.column-2,
-.column-3 {
-  background-image: url('./assets/covid-back.jpg');
+.bg-light {
+    background-color: rgba(214, 29, 29, 0)!important;
 }
 
 .col-md-2.d-md-block.bg-light1 {

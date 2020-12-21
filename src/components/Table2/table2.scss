@@ -1,6 +1,6 @@
 @import './../../variables';
 .table2 {
-    height: 86vh;
+    height: 82vh;
     @include table_background_gradient;
 }
 
@@ -84,3 +84,25 @@
     color: white;
 }
 
+.table-head,
+.wrapper-countries {
+    position: absolute;
+    width: 15.6vw;
+    top: 0;
+
+}
+
+.table-head {
+    background-color: rgba(25, 128, 189, 1);
+    margin-top: 3rem;
+    width: 15.6vw;
+
+}
+
+.table-body {
+    margin-top: 4rem;
+}
+
+.table-country {
+    margin-top: 5.3rem;
+}

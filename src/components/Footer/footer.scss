@@ -19,7 +19,7 @@ a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 4rem;
+
 }
 
 .footer-copyright {
@@ -38,6 +38,30 @@ a:hover {
     font-size: 1.2rem;
 }
 
+
+@media (max-width: 1300px) {
+    .footer {
+        margin-top: 0;
+    }
+
+    .footer-logo {
+        height: 5rem;
+        width: 20%
+    }
+    .copyright-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 39rem;
+    }
+    .copyright-title {
+        width: 10rem;
+    }
+
+    .footer-copyright {
+        width: 58%
+    }
+
+}
 
 
 @media (max-width: 768px) {
