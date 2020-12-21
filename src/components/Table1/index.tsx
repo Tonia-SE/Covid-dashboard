@@ -131,12 +131,12 @@ export class Table1 extends React.Component<Props, State> {
         return (
             <div className={ this.state.classNameCol1Table1 }>
                 <div className="maximise-wrapper">
+                    <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                     <div className="switcher-wrapper">
                         <Switcher onChange={this.props.updateTable1} />
                         <Switcher onChange={this.props.changeValuesTable1}/>
                     </div>
-                    <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
-                    <Maximize classNameCol1={'column col-md-12 d-md-block bg-light table-countries'}
+                    <Maximize classNameCol1={'column col-md-6 d-md-block bg-light maximise-wrapper table-countries'}
                                 classNameCol2={"column col-md-6 d-none pt-3"}
                                 classNameCol3={"column col-md-3 d-none bg-light1 table-countries"}
                                 setClassNameCol1={this.props.setClassNameCol1}

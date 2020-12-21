@@ -73,13 +73,13 @@ export class Map extends React.Component<Props> {
                 <h1 className="h2">COVID-19 Dashboard</h1>
                 <div className="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <div className="maximise-wrapper">
+                    <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                         <div className="switcher-wrapper">
                             <Switcher onChange={this.props.updateTable1} />
                             <Switcher onChange={this.props.changeValuesTable1}/>
                         </div>
-                        <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                         <Maximize classNameCol1={'column d-none bg-light table-countries'}
-                                    classNameCol2={"column col-md-12 pt-3"}
+                                    classNameCol2={"column col-md-9 pt-3 maximise-style"}
                                     classNameCol3={"column d-none bg-light1 table-countries"}
                                     setClassNameCol1={this.props.setClassNameCol1}
                                     setClassNameCol2={this.props.setClassNameCol2}

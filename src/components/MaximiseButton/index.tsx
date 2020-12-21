@@ -33,7 +33,6 @@ export class Maximize extends React.Component<Props> {
     render() {
         return (
             <button className="btn btn-primary maximise-btn" type="submit" onClick={() => {
-                //console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
                 if(this.state.isMaximized) {
                     this.props.setClassNameCol1(initialClassNameCol1);
                     this.props.setClassNameCol2(initialClassNameCol2);
@@ -41,7 +40,6 @@ export class Maximize extends React.Component<Props> {
                     this.props.setClassNameCol1Total?.(initialClassNameCol1Total);
                     this.props.setClassNameCol1Table1?.(initialClassNameCol1Table1);
                     this.props.setClassNameCol1Graph?.(initialClassNameCol1Graph);
-
                     this.toogle();
                 }
                 else {
@@ -49,7 +47,6 @@ export class Maximize extends React.Component<Props> {
                     this.props.setClassNameCol2(this.props.classNameCol2);
                     this.props.setClassNameCol3(this.props.classNameCol3);
                     if (this.props.classNameCol1Total !== undefined) {
-                        console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
                         this.props.setClassNameCol1Total?.(this.props.classNameCol1Total);
                     }
                     if (this.props.classNameCol1Table1 !== undefined) {
