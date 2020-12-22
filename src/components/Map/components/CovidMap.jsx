@@ -32,9 +32,10 @@ class CovidMap extends React.Component {
     layer.options.fillColor = country.properties[`${this.state.parameter}Color`];
     const name = country.properties.ADMIN;
     const textToDisplay = country.properties[this.state.parameter];
-    layer.on({click: () => {
+    layer.on({click: () => {      
       const countryDetails = {
         countryUrl: `https://disease.sh/v3/covid-19/countries/${country.properties.ISO_A3}`,
+        graphURL: `https://disease.sh/v3/covid-19/historical/${country.properties.ISO_A3}\?lastdays=100`,
         countryFlag: country.properties.flag,
         countryName: country.properties.ADMIN,                                                
       };
