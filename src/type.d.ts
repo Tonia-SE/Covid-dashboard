@@ -95,7 +95,8 @@ interface TableDataPossibleAttrs {
 interface CountryDetails {
     countryUrl: string,
     countryFlag: string,
-    countryName: string
+    countryName: string,
+    graphURL: string,
 }
 
 interface Features {

@@ -15,25 +15,39 @@ interface Props {
     setCountryDetails: (countries: CountryDetails) => void;
     updateTable1: (swithcerState: boolean) => void;
     changeValuesTable1: (swithcerState: boolean) => void;
+    isRelativeValues: boolean;
     countryDetails: CountryDetails;
+    tableHead: {
+        th1: string,
+        th2: string,
+        th3: string
+    };
+    tableData: {
+        td1: string,
+        td2: string,
+        td3: string
+    };
 }
 
 export class Table2 extends React.Component<Props> {
-
     state = {
         loading: true,
         countriesData: [],
-        value: 'cases',
+        value: '0',
         isFormVisible: false,
         selectedCountryName: '',
         selectedCountryFlag: '',
-        filterString: ''
+        filterString: '',
+        possibleValues: [
+            [this.props.tableHead.th1, this.props.tableData.td1],
+            [this.props.tableHead.th2, this.props.tableData.td2],
+            [this.props.tableHead.th3, this.props.tableData.td3],
+        ],
     }
 
     async componentDidMount() {
         const url = "https://disease.sh/v3/covid-19/countries";
-        const data = await fetch(url).then(res => res.json());
-        console.log('data', data);
+        const data = await fetch(url).then(res => res.json());;
 
         data.sort((a:Country, b:Country) => {
             // Use toUpperCase() to ignore character casing
@@ -52,6 +66,21 @@ export class Table2 extends React.Component<Props> {
         this.props.setCountries(data);
     }
 
+    async componentDidUpdate(prevProps: Props) {
+        if (prevProps.tableHead !== this.props.tableHead || prevProps.tableData !== this.props.tableData) {
+            this.setState({
+                possibleValues: [
+                    [this.props.tableHead.th1, this.props.tableData.td1],
+                    [this.props.tableHead.th2, this.props.tableData.td2],
+                    [this.props.tableHead.th3, this.props.tableData.td3],
+                ]
+            });
+        }
+        if (prevProps.isRelativeValues !== this.props.isRelativeValues) {
+            this.setState({ isRelativeValues: this.props.isRelativeValues });
+        }
+    }
+
     render() {
 
         if (this.state.loading) {
@@ -65,7 +94,6 @@ export class Table2 extends React.Component<Props> {
                             <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
                                         classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
                                         classNameCol2={"column col-md-3 d-none pt-3"}
-
                                         setClassNameCol1={this.props.setClassNameCol1}
                                         setClassNameCol3={this.props.setClassNameCol3}
                                         setClassNameCol2={this.props.setClassNameCol2}
@@ -82,6 +110,7 @@ export class Table2 extends React.Component<Props> {
         }
 
         if (!this.state.loading) {
+            const dataField = this.state.possibleValues[Number(this.state.value)][1];
             return (
                 <>
                     <div className="table-responsive table2">
@@ -112,9 +141,9 @@ export class Table2 extends React.Component<Props> {
                                         } className="btn btn-outline-secondary keyboard" type="button">⌨</button></div></th>
                                     <th>
                                         <select className='select-country' onChange={(evt) => {this.setState({value: `${evt.target.value}`});}}>
-                                            <option className='table-point' value='cases'>Total cases</option>
-                                            <option className='table-point' value='deaths'>Total deaths</option>
-                                            <option className='table-point' value='recovered'>Total recovered</option>
+                                            <option className='table-point' value='0'>{this.state.possibleValues[0][0]}</option>
+                                            <option className='table-point' value='1'>{this.state.possibleValues[1][0]}</option>
+                                            <option className='table-point' value='2'>{this.state.possibleValues[2][0]}</option>
                                         </select>
                                     </th>
                                 </tr>
@@ -127,6 +156,7 @@ export class Table2 extends React.Component<Props> {
                                             this.setState({selectedCountryFlag: country.countryInfo.flag});
                                             const countryDetails: CountryDetails = {
                                                 countryUrl: `https://disease.sh/v3/covid-19/countries/${country.countryInfo.iso3}`,
+                                                graphURL: `https://disease.sh/v3/covid-19/historical/${country.countryInfo.iso3}?lastdays=100`,
                                                 countryFlag: country.countryInfo.flag,
                                                 countryName: country.country,
                                             };
@@ -136,7 +166,8 @@ export class Table2 extends React.Component<Props> {
                                                 <img className='flag' src={country.countryInfo.flag}/> {country.country}
                                             </td>
                                             <td>
-                                                {country[`${this.state.value}`]}
+                                                {!this.props.isRelativeValues && country[dataField] }
+                                                {this.props.isRelativeValues && Math.floor(country[dataField]/Number(country['population']) * 100000) }
                                             </td>
                                         </tr>
                                     );

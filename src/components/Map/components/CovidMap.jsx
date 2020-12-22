@@ -33,7 +33,6 @@ class CovidMap extends React.Component {
     const name = country.properties.ADMIN;
     const textToDisplay = country.properties[this.state.parameter];
     layer.on({click: () => {
-      console.log(country.properties.ADMIN);
       const countryDetails = {
         countryUrl: `https://disease.sh/v3/covid-19/countries/${country.properties.ISO_A3}`,
         countryFlag: country.properties.flag,
@@ -80,7 +79,6 @@ const CovidMap2 = ({ countries, setCountryDetails, parameter }) => {
     const name = country.properties.ADMIN;
     const textToDisplay = country.properties[parameter];
     layer.on({click: ()=>{
-      console.log(country.properties.ADMIN);
       const countryDetails = {
         countryUrl: `https://disease.sh/v3/covid-19/countries/${country.properties.ISO_A3}`,
         countryFlag: country.properties.flag,

@@ -13,8 +13,9 @@ const graphInitialURL: string = "https://disease.sh/v3/covid-19/historical/all?l
 
 const initialCountryDetails: CountryDetails = {
     countryUrl: "https://disease.sh/v3/covid-19/all",
+    graphURL: "https://disease.sh/v3/covid-19/historical/all?lastdays=100",
     countryFlag: '',
-    countryName: '',
+    countryName: 'Global',
 };
 
 const table1PossibleHeaders: TableHeaders = {
@@ -77,7 +78,6 @@ function App() {
     const [countryDetails, setCountryDetails] = useState(initialCountryDetails);
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
-    const [graphURL, setGraphURL] = useState(graphInitialURL);
     // const [switch1State, swithcGroup1] = useState(false);
     const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
@@ -106,14 +106,12 @@ function App() {
             }
             setTable1Data(table1DataPossibleAttrs.today);
             setToday(true);
-            console.log(isToday);
         }
     };
 
     const update2Table1 = (switcherState: boolean) => {
         changeValuesTable1(switcherState);
         if (!isRelativeValues) {
-            console.log(isToday);
             if(isToday) {
                 setTable1Head(table1PossibleHeaders.relativeToday);
             } else {
@@ -158,8 +156,9 @@ function App() {
                                 setClassNameCol3={setClassNameCol3}
                                 setClassNameCol1Total={setClassNameCol1Total}
                                 setClassNameCol1Table1={setClassNameCol1Table1}
-                                setClassNameCol1Graph={setClassNameCol1Graph}
-                                graphURL={graphURL}
+                                setClassNameCol1Graph={setClassNameCol1Graph}                                
+                                tableHead={table1Head}
+                                tableData={table1Data}
                                 parameter={table1Data.td1}/>
                     </div>
                     <div className={classNameCol2}>
@@ -182,12 +181,13 @@ function App() {
                             setClassNameCol3={setClassNameCol3}
                             setCountries={setCountries}
                             countryDetails={countryDetails}
+                            tableHead={table1Head}
+                            tableData={table1Data}
+                            isRelativeValues={isRelativeValues}
                             />
                     </div>
                 </div>
-
-                    <Footer />
-
+                <Footer />
             </div>
         </>
     );

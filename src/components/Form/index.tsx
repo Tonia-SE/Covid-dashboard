@@ -38,11 +38,9 @@ export class Form extends React.Component<Props> {
       onChange (input: any) {
         this.setState({ input });
         this.props.onfilterchange(input);
-        console.log("Input changed", input);
       };
 
       onKeyPress = (button: any) => {
-        console.log("Button pressed", button);
         if (button === "{shift}" || button === "{lock}") this.handleShift();
       };
     
