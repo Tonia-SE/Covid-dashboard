@@ -30,6 +30,7 @@ a:hover {
     bottom: 0;
     justify-content: space-around;
     align-items: center;
+
     margin-top: 1rem;
     margin-left: -5px;
     margin-right: -5px;
@@ -80,6 +81,30 @@ a:hover {
  transition: 1s;
 }
 
+@media (max-width: 1300px) {
+    .footer {
+        margin-top: 0;
+    }
+
+    .footer-logo {
+        height: 5rem;
+        width: 20%
+    }
+    .copyright-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 39rem;
+    }
+    .copyright-title {
+        width: 10rem;
+    }
+
+    .footer-copyright {
+        width: 58%
+    }
+
+}
+
 
 @media (max-width: 768px) {
 
@@ -97,7 +122,7 @@ a:hover {
     }
 
     .footer-copyright {
-        
+
         font-size: 0.7rem;
         padding-bottom: 1rem;
     }

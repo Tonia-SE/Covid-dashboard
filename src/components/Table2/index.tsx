@@ -65,7 +65,7 @@ export class Table2 extends React.Component<Props> {
                             <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
                                         classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
                                         classNameCol2={"column col-md-3 d-none pt-3"}
-                                        
+
                                         setClassNameCol1={this.props.setClassNameCol1}
                                         setClassNameCol3={this.props.setClassNameCol3}
                                         setClassNameCol2={this.props.setClassNameCol2}
@@ -103,8 +103,8 @@ export class Table2 extends React.Component<Props> {
                             { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
                         </div>
 
-                        <table className="table-responsive table table-striped table-sm ">
-                            <thead>
+                        <table className="table-country table-responsive table table-striped table-sm ">
+                            <thead className="table-head">
                                 <tr>
                                     <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
                                             this.setState({isFormVisible: !this.state.isFormVisible});
@@ -119,7 +119,7 @@ export class Table2 extends React.Component<Props> {
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="table-body">
                                 {this.state.countriesData.filter((country: Country) => {return country.country.includes(this.state.filterString);}).map((country: Country) => {
                                     return (
                                         <tr className='table-cell' key={country.country} onClick={() => {
@@ -128,7 +128,7 @@ export class Table2 extends React.Component<Props> {
                                             const countryDetails: CountryDetails = {
                                                 countryUrl: `https://disease.sh/v3/covid-19/countries/${country.countryInfo.iso3}`,
                                                 countryFlag: country.countryInfo.flag,
-                                                countryName: country.country,                                                
+                                                countryName: country.country,
                                             };
                                             this.props.setCountryDetails(countryDetails);
                                         }}>

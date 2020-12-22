@@ -22,6 +22,27 @@
     font-size: 2rem;
 }
 
+@media (max-width: 1300px) {
+    .total-cases-wrapper {
+
+        padding: 0.5rem 0 0 0!important;
+    }
+    .total-cases-title {
+        font-size: 1.1rem;
+    }
+
+    .total-cases-count {
+        font-size: 1.3rem;
+    }
+
+    .total-cases-txt-wrap {
+        padding-top: 1.2rem!important;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+
 @media (max-width: 375px) {
     .total-cases-wrapper {
 

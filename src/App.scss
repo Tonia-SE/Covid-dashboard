@@ -64,32 +64,11 @@ body{
         flex-wrap: wrap;
     }
 
-    .table-countries {
-        margin-top: 6rem!important;
-    }
-
-    .column-1{
-        margin-top: 6rem;
-        order:1;
-    }
-
-    .column-3{
-        margin-top: 6rem;
-    }
-
-    .column-2{
-        order:0;
-        height: 50vh;
-    }
 }
 
 
 
-
-
-
-
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .container-fluid{
       padding: 0 20px 0 20px !important;
   }

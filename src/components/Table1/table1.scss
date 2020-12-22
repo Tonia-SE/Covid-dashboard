@@ -36,6 +36,25 @@
     font-size: 1.3rem!important;
 }
 
+@media (max-width: 1300px) {
+    .cases-head {
+        padding-left: .3rem!important;
+        width: 2rem;
+        font-size: 0.8em;
+    }
+
+    .table th, .table td {
+        padding: .3rem!important;
+        font-size: 0.7rem;
+    }
+
+    .cases-info {
+        width: 2rem;
+        font-size: 0.8rem;
+    }
+
+}
+
 @media (max-width: 768px) {
     .cases-head {
         padding-left: .3rem!important;
