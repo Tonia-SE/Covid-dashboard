@@ -2,7 +2,7 @@ import React from 'react';
 import './switcher1.scss';
 
 interface SwitcherProps {    
-    isGroupSwitched?: boolean,
+    switchGroupState?: boolean,
     switchGroup?: (value: boolean)=>void,
     onChange?: (value: boolean) => void,
 }
@@ -17,11 +17,13 @@ export class Switcher extends React.Component<SwitcherProps, State> {
         };
     }
 
-    // async componentDidUpdate(prevProps: SwitcherProps) {
-    //     if (prevProps.isGroupSwitched !== this.props.isGroupSwitched) {
-    //         this.toggleStatus();
-    //     }
-    // }
+    async componentDidUpdate(prevProps: SwitcherProps) {
+        if (prevProps.switchGroupState !== this.props.switchGroupState) {
+            if (this.props.switchGroupState !== undefined) {
+                this.setState({checked: this.props.switchGroupState});
+            }
+        }
+    }
 
     toggleStatus() {
         const nextValue = !this.state.checked;

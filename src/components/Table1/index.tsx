@@ -30,6 +30,10 @@ interface Props {
     setClassNameCol1Table1: (className: string) => void,
     setClassNameCol1Graph: (className: string) => void,
     classNameCol1Table1: string,
+    switchGroup1State: boolean,
+    switchGroup2State: boolean,
+    switchGroup1: (swithcerState: boolean) => void,
+    switchGroup2: (swithcerState: boolean) => void,
 }
 
 interface State {
@@ -133,8 +137,8 @@ export class Table1 extends React.Component<Props, State> {
                 <div className="maximise-wrapper">
                     <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                     <div className="switcher-wrapper">
-                        <Switcher onChange={this.props.updateTable1} />
-                        <Switcher onChange={this.props.changeValuesTable1} />
+                        <Switcher onChange={this.props.updateTable1} switchGroupState={this.props.switchGroup1State} switchGroup={this.props.switchGroup1} />
+                        <Switcher onChange={this.props.changeValuesTable1} switchGroupState={this.props.switchGroup2State} switchGroup={this.props.switchGroup2} />
                     </div>
                     <Maximize classNameCol1={'column col-md-6 d-md-block bg-light maximise-wrapper table-countries'}
                                 classNameCol2={"column col-md-6 d-none pt-3"}

@@ -28,6 +28,10 @@ interface Props {
         td2: string,
         td3: string
     };
+    switchGroup1State: boolean,
+    switchGroup2State: boolean,
+    switchGroup1: (swithcerState: boolean) => void,
+    switchGroup2: (swithcerState: boolean) => void,
 }
 
 export class Table2 extends React.Component<Props> {
@@ -95,57 +99,34 @@ export class Table2 extends React.Component<Props> {
     }
 
     render() {
-
-        if (this.state.loading) {
-            return (
-                <>
-                    <div className="table2 ">
-                        <div className="wrapper-form">
+        const dataField = this.state.possibleValues[Number(this.state.value)][1];
+        this.sortCountriesData(dataField);
+        return (
+            <>
+                <div className="table-responsive table2">
+                    <div className="wrapper-countries">
+                        <div className="maximise-wrapper">
                             <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
-                            <Switcher onChange={this.props.updateTable1} />
-                            <Switcher onChange={this.props.changeValuesTable1}/>
-                            <Maximize classNameCol1={'column col-md-3 d-none bg-light table-countries'}
-                                        classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
-                                        classNameCol2={"column col-md-3 d-none pt-3"}
-                                        setClassNameCol1={this.props.setClassNameCol1}
-                                        setClassNameCol3={this.props.setClassNameCol3}
-                                        setClassNameCol2={this.props.setClassNameCol2}
-                                        />
-                        </div>
-                        <table className="stat-table table table-hover table-responsive-md table-responsive-sm">
-                            <tbody>
-                                <Spinner />
-                            </tbody>
-                        </table>
-                    </div>
-                </>
-            );
-        }
-
-        if (!this.state.loading) {
-            const dataField = this.state.possibleValues[Number(this.state.value)][1];
-            this.sortCountriesData(dataField);
-            return (
-                <>
-                    <div className="table-responsive table2">
-                        <div className="wrapper-countries">
-                            <div className="maximise-wrapper">
-                                <CountryName countryName={this.props.countryDetails.countryName} countryFlag={this.props.countryDetails.countryFlag } />
-                                <div className="switcher-wrapper">
-                                    <Switcher onChange={this.props.updateTable1} />
-                                    <Switcher onChange={this.props.changeValuesTable1}/>
-                                </div>
-                                <Maximize classNameCol1={'column col-md-3 bg-light table-countries d-none'}
-                                        classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
-                                        classNameCol2={"column col-md-3 pt-3 d-none"}
-                                        setClassNameCol1={this.props.setClassNameCol1}
-                                        setClassNameCol3={this.props.setClassNameCol3}
-                                        setClassNameCol2={this.props.setClassNameCol2}
-                                        />
+                            <div className="switcher-wrapper">                                    
+                                <Switcher onChange={this.props.updateTable1} switchGroupState={this.props.switchGroup1State} switchGroup={this.props.switchGroup1}/>
+                                <Switcher onChange={this.props.changeValuesTable1} switchGroupState={this.props.switchGroup2State} switchGroup={this.props.switchGroup2}/>
                             </div>
-                            { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
+                            <Maximize classNameCol1={'column col-md-3 bg-light table-countries d-none'}
+                                    classNameCol3={"column col-md-6 d-md-block bg-light1 table-countries maximise-style"}
+                                    classNameCol2={"column col-md-3 pt-3 d-none"}
+                                    setClassNameCol1={this.props.setClassNameCol1}
+                                    setClassNameCol3={this.props.setClassNameCol3}
+                                    setClassNameCol2={this.props.setClassNameCol2}
+                                    />
                         </div>
-                        <div className="table2-wrapper">
+                        { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
+                    </div>
+                    {
+                        this.state.loading && <div className="Loading"><Spinner /></div>
+                    }
+                    {
+                        !this.state.loading &&
+                        (<div className="table2-wrapper">
                             <table className="table-country table table-striped table-sm ">
                                 <thead className="table-head">
                                     <tr>
@@ -191,10 +172,11 @@ export class Table2 extends React.Component<Props> {
                                     })}
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </>
-            );
-        }
+                        </div>)
+                    }
+                </div>
+            </>
+        );
+        //}
     }
 }

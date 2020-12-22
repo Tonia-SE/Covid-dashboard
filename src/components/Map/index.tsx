@@ -24,6 +24,10 @@ interface Props {
     setClassNameCol2: (className: string) => void;
     setClassNameCol3: (className: string) => void;
     setCountryDetails: (details: CountryDetails) => void;
+    switchGroup1State: boolean,
+    switchGroup2State: boolean,
+    switchGroup1: (swithcerState: boolean) => void,
+    switchGroup2: (swithcerState: boolean) => void,
 } 
 
 export class Map extends React.Component<Props> {
@@ -46,8 +50,8 @@ export class Map extends React.Component<Props> {
                     <div className="maximise-wrapper">
                     <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                         <div className="switcher-wrapper">
-                            <Switcher onChange={this.props.updateTable1} />
-                            <Switcher onChange={this.props.changeValuesTable1}/>
+                            <Switcher onChange={this.props.updateTable1} switchGroupState={this.props.switchGroup1State} switchGroup={this.props.switchGroup1} />
+                            <Switcher onChange={this.props.changeValuesTable1} switchGroupState={this.props.switchGroup2State} switchGroup={this.props.switchGroup2} />
                         </div>
                         <Maximize classNameCol1={'column d-none bg-light table-countries'}
                                     classNameCol2={"column col-md-9 pt-3 maximise-style"}
