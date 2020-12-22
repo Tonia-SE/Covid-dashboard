@@ -11,6 +11,7 @@ interface Props {
     setClassNameCol1: (className: string) => void;
     setClassNameCol2: (className: string) => void;
     setClassNameCol3:(className: string) => void;
+    setGraphParameter:(className: string) => void;
     setCountries: (countries: Array<Object>) => void;
     setCountryDetails: (countries: CountryDetails) => void;
     updateTable1: (swithcerState: boolean) => void;
@@ -45,14 +46,17 @@ export class Table2 extends React.Component<Props> {
         ],
     }
 
-    async componentDidMount() {
-        const url = "https://disease.sh/v3/covid-19/countries";
-        const data = await fetch(url).then(res => res.json());;
+    possibleGraphValues = [
+        'cases',
+        'deaths',
+        'recovered'
+    ]
 
-        data.sort((a:Country, b:Country) => {
+    sortCountriesData(parameter: string) {
+        this.state.countriesData.sort((a:Country, b:Country) => {
             // Use toUpperCase() to ignore character casing
-            const bandA = a['cases'] ;
-            const bandB = b['cases'];
+            const bandA = a[parameter] ;
+            const bandB = b[parameter];
             let comparison = 0;
             if (bandA < bandB) {
                 comparison = 1;
@@ -61,7 +65,11 @@ export class Table2 extends React.Component<Props> {
             }
             return comparison;
         });
+    }
 
+    async componentDidMount() {
+        const url = "https://disease.sh/v3/covid-19/countries";
+        const data = await fetch(url).then(res => res.json());;
         this.setState({countriesData: data, loading: false });
         this.props.setCountries(data);
     }
@@ -79,6 +87,11 @@ export class Table2 extends React.Component<Props> {
         if (prevProps.isRelativeValues !== this.props.isRelativeValues) {
             this.setState({ isRelativeValues: this.props.isRelativeValues });
         }
+    }
+
+    async updateValues(evt: any, dataField: string) {
+        await this.props.setGraphParameter(dataField);
+        await this.setState({value: `${evt.target.value}`});
     }
 
     render() {
@@ -111,6 +124,7 @@ export class Table2 extends React.Component<Props> {
 
         if (!this.state.loading) {
             const dataField = this.state.possibleValues[Number(this.state.value)][1];
+            this.sortCountriesData(dataField);
             return (
                 <>
                     <div className="table-responsive table2">
@@ -140,7 +154,10 @@ export class Table2 extends React.Component<Props> {
                                             this.setState({filterString: ''});}
                                         } className="btn btn-outline-secondary keyboard" type="button">⌨</button></div></th>
                                     <th>
-                                        <select className='select-country' onChange={(evt) => {this.setState({value: `${evt.target.value}`});}}>
+                                        <select className='select-country' onChange={(evt) => {
+                                                this.props.setGraphParameter(this.possibleGraphValues[Number(evt.target.value)]);
+                                                this.setState({value: `${evt.target.value}`});
+                                            }}>
                                             <option className='table-point' value='0'>{this.state.possibleValues[0][0]}</option>
                                             <option className='table-point' value='1'>{this.state.possibleValues[1][0]}</option>
                                             <option className='table-point' value='2'>{this.state.possibleValues[2][0]}</option>
@@ -156,7 +173,7 @@ export class Table2 extends React.Component<Props> {
                                             this.setState({selectedCountryFlag: country.countryInfo.flag});
                                             const countryDetails: CountryDetails = {
                                                 countryUrl: `https://disease.sh/v3/covid-19/countries/${country.countryInfo.iso3}`,
-                                                graphURL: `https://disease.sh/v3/covid-19/historical/${country.countryInfo.iso3}?lastdays=100`,
+                                                graphURL: `https://disease.sh/v3/covid-19/historical/${country.countryInfo.iso3}\?lastdays=100`,
                                                 countryFlag: country.countryInfo.flag,
                                                 countryName: country.country,
                                             };

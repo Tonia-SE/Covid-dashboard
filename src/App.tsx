@@ -78,6 +78,7 @@ function App() {
     const [countryDetails, setCountryDetails] = useState(initialCountryDetails);
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
+    const [graphParameter, setGraphParameter] = useState(table1DataPossibleAttrs.all.td1);
     // const [switch1State, swithcGroup1] = useState(false);
     const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
@@ -159,7 +160,7 @@ function App() {
                                 setClassNameCol1Graph={setClassNameCol1Graph}                                
                                 tableHead={table1Head}
                                 tableData={table1Data}
-                                parameter={table1Data.td1}/>
+                                parameter={graphParameter}/>
                     </div>
                     <div className={classNameCol2}>
                         <Map countryDetails={countryDetails}
@@ -184,6 +185,7 @@ function App() {
                             tableHead={table1Head}
                             tableData={table1Data}
                             isRelativeValues={isRelativeValues}
+                            setGraphParameter={setGraphParameter}
                             />
                     </div>
                 </div>
