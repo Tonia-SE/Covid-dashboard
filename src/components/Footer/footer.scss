@@ -1,5 +1,68 @@
 @import './../../variables';
 
+.footer {
+    @include table_background_gradient;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    // margin-bottom: 5px;
+    height: 7vh;
+    // min-height: 7vh;
+    flex-grow: 1;
+    left: 0;
+    right: 0;
+    bottom: 1vh;
+}
+
+.copyright-title {
+    color: #fff;
+    user-select: none;
+}
+
+.footer-copyright {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50vw;
+}
+
+.link-gh{
+    padding-left: 25px;
+}
+
+.link-gh::before{
+    display: block;
+    position: absolute;
+    content: '';
+    color: #fff;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-image: url('./../../assets/github-logo.svg');
+    background-size: contain;
+}
+
+.link-rs {
+    margin-left: 2vw;
+}
+
+.link-rs::before{
+    display: block;
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 20px;
+    top: -10px;
+    left: -10px;
+    background-image: url('./../../assets/rs-logo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 1s;
+}
 
 a {
     outline: none;
@@ -7,7 +70,6 @@ a {
     position: relative;
     color: #fff;
     line-height: 1.2rem;
-    font-weight: bold;
 }
 
 a:hover {
@@ -22,108 +84,49 @@ a:hover {
     transition: 1s;
 }
 
-.footer {
+// @media (max-width: 1300px) {
+//     .footer {
+//         margin-top: 0;
+//     }
 
-    @include table_background_gradient;
-    display: flex;
-    position: relative;
-    bottom: 0;
-    justify-content: space-around;
-    align-items: center;
+//     .footer-logo {
+//         height: 5rem;
+//         width: 20%
+//     }
+//     .copyright-wrapper {
+//         display: flex;
+//         justify-content: space-between;
+//         width: 39rem;
+//     }
+//     .copyright-title {
+//         width: 10rem;
+//     }
 
-    margin-top: 1rem;
-    margin-left: -5px;
-    margin-right: -5px;
-    margin-bottom: 5px;
-    min-height: 5rem;
-    flex-grow: 1;
-}
+//     .footer-copyright {
+//         width: 58%
+//     }
+// }
 
-.copyright-title {
-    color: #fff;
-    user-select: none;
-}
 
-.footer-copyright {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 80vw;
-}
-
-.link-gh{
-  padding-left: 25px;
-}
-
-.link-gh::before{
- display: block;
- position: absolute;
- content: '';
- color: #fff;
- top: 0;
- width: 20px;
- height: 20px;
- background-image: url('./../../assets/github-logo.svg');
- background-size: contain;
-}
-
-.link-rs::before{
- display: block;
- position: absolute;
- content: '';
- width: 50px;
- height: 20px;
- top: -10px;
- left: -10px;
- background-image: url('./../../assets/rs-logo.svg');
- background-repeat: no-repeat;
- background-size: contain;
- transition: 1s;
-}
-
-@media (max-width: 1300px) {
-    .footer {
-        margin-top: 0;
-    }
-
-    .footer-logo {
-        height: 5rem;
-        width: 20%
-    }
-    .copyright-wrapper {
-        display: flex;
-        justify-content: space-between;
-        width: 39rem;
-    }
-    .copyright-title {
-        width: 10rem;
-    }
-
+@media (max-width: 800px) {
     .footer-copyright {
-        width: 58%
+        width: 70vw;
     }
-
 }
 
-
-@media (max-width: 768px) {
-
+@media (max-width: 600px) {
     .footer-copyright {
-        flex-direction: column;
-        height: 10rem;
-        font-size: 0.7rem;
+        width: 80vw;
     }
 }
 
-@media (max-width: 375px) {
+// @media (max-width: 375px) {
+//   .copyright-title {
+//         font-size: 0.7rem;
+//     }
 
-    .copyright-title {
-        font-size: 0.7rem;
-    }
-
-    .footer-copyright {
-
-        font-size: 0.7rem;
-        padding-bottom: 1rem;
-    }
-}
+//     .footer-copyright {
+//         font-size: 0.7rem;
+//         padding-bottom: 1rem;
+//     }
+// }

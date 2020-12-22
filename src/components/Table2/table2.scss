@@ -1,15 +1,22 @@
 @import './../../variables';
+
 .table2 {
-    height: 82vh;
+    height: 86vh;
     @include table_background_gradient;
 }
 
-.maximise-wrapper {
+.third .maximise-wrapper {
     @include maximise-wrapper;
+    //justify-content: space-between;
 }
 
-.switcher-wrapper {
+// .third .country-name-wrapper {
+//     margin-right: 0;
+// }
+
+.third .switcher-wrapper {
     @include switcher-wrapper;
+    //margin-right: 0;
 }
 
 .select-country {
@@ -23,6 +30,13 @@
 .maximise-style {
     margin: 0 auto;
 }
+
+.third .country-name-wrapper {
+    display: none;
+}
+// .table-head thead {
+//     border-top: none !important;
+// }
 
 .table-point {
     color: #000;
@@ -39,6 +53,12 @@
 .title-wrapper {
     display: flex;
     color: rgb(255, 255, 255);
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.title-wrapper span {
+    margin-right: 0.5vw;
 }
 
 .btn-outline-secondary {
@@ -51,17 +71,27 @@
     transform: scale(1.1);
 }
 
-.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0)!important;
+.select-country {
+    width: 5vw;
+    margin-bottom: 5px;
 }
 
-.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+thead {
+    width: 100%;
 }
 
-.btn-outline-secondary:focus, .btn-outline-secondary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
-}
+
+// .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+//     box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0)!important;
+// }
+
+// .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+//     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+// }
+
+// .btn-outline-secondary:focus, .btn-outline-secondary.focus {
+//     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+// }
 
 .input-group {
     position: absolute;
@@ -84,25 +114,27 @@
     color: white;
 }
 
-.table-head,
-.wrapper-countries {
-    position: absolute;
-    width: 15.6vw;
-    top: 0;
-
+img {
+    margin-right: 0.5vw;
+    margin-left: 0.2vw;
 }
+// .table-head,
+// .wrapper-countries {
+//     position: absolute;
+//     // width: 15.6vw;
+//     top: 0;
+// }
 
-.table-head {
-    background-color: rgba(25, 128, 189, 1);
-    margin-top: 3rem;
-    width: 15.6vw;
+// .table-head {
+//     background-color: rgba(25, 128, 189, 1);
+//     margin-top: 3rem;
+//     width: 15.6vw;
+// }
 
-}
+// .table-body {
+//     margin-top: 4rem;
+// }
 
-.table-body {
-    margin-top: 4rem;
-}
-
-.table-country {
-    margin-top: 5.3rem;
-}
+// .table-country {
+//     margin-top: 5.3rem;
+// }

@@ -1,10 +1,9 @@
 @import './../../variables';
 
 .total-cases-wrapper {
-    height: 20vh;
-
-    padding: 1rem 1rem 1rem 1rem;
-    margin: .2rem .2rem .2rem .2rem;
+    height: 22vh;
+    padding: 0 1rem 1rem 1rem;
+    margin: 0 .2rem .2rem .2rem;
     @include table_background_gradient;
 }
 
@@ -24,7 +23,6 @@
 
 @media (max-width: 1300px) {
     .total-cases-wrapper {
-
         padding: 0.5rem 0 0 0!important;
     }
     .total-cases-title {
@@ -45,7 +43,6 @@
 
 @media (max-width: 375px) {
     .total-cases-wrapper {
-
         margin-top: -4rem!important;
         padding: 0.5rem 0 0 0!important;
     }
@@ -62,5 +59,4 @@
         display: flex;
         justify-content: space-around;
     }
-
 }

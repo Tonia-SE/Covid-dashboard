@@ -1,7 +1,7 @@
 .first-wrapper-btns {
 
-    $label-width: 100px;
-    $label-height: 20px;
+    $label-width: 3vw;
+    $label-height: 18px;
 
 
     .wrapper {
@@ -30,10 +30,11 @@
         -o-transition: all 600ms;
         transition: all 600ms;
         cursor: pointer;
+        margin-right: 1vw;
     }
 
     label:after {
-        content: "ON";
+        content: "";
         width: $label-width / 2;
         height: $label-height;
         position: absolute;
@@ -60,8 +61,6 @@
 
     :checked + label:after {
         left: $label-width / 2;
-        background: #6bfc66;
-        border-radius: 3px;
-        content: "OFF";
+        content: "";
     }
 }

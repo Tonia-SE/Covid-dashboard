@@ -18,32 +18,39 @@ code {
 .bg-light {
     background-color: rgba(214, 29, 29, 0)!important;
 }
-
-.container-fluid {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
+.row {
+  margin-top: 2vh
 }
 
-.column-1,
-.column-2,
-.column-3 {
-  background-image: url('./assets/covid-back.jpg');
-}
+// .column-3 .col-xl-2 .col-lg-2 .col-md-6 .d-md-block .bg-light1 .table-countries
+// .col-1 .col-2 .col-3 .col-4 .col-5 .col-6 
+// .col-7 .col-8 .col-9 .col-10 .col-11 .col-12 {
+//   padding: 0 !important;
+// }
 
-.col-md-2.d-md-block.bg-light1 {
-    color: rgb(214, 29, 29)!important;
-    flex-wrap: wrap!important;
+.first .second .third {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
 }
+// .container-fluid {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+//   justify-content: space-between;
+// }
 
-.table-countries {
-    margin-top: 1rem;
-}
+// .col-md-2.d-md-block.bg-light1 {
+//     color: rgb(214, 29, 29)!important;
+//     flex-wrap: wrap!important;
+// }
 
-.column-1,
-.column-2,
-.column-3 {
-    padding-left: 6px!important;
-    padding-right: 6px!important;
-}
+// .table-countries {
+//     margin-top: 1rem;
+// }
+
+// .column-1,
+// .column-2,
+// .column-3 {
+//     padding-left: 6px!important;
+//     padding-right: 6px!important;
+// }
