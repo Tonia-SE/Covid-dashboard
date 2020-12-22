@@ -43,69 +43,52 @@ export class Graph extends React.Component<Props> {
         parameter: this.props.parameter
     }
 
-    async updateData() {
+    timeline = {}
+
+    async updateData(parameter:string, url: string) {
         this.setState({loading: true });
-        console.log(this.state.countryDetails.graphURL);
-        const data = await fetch(this.state.countryDetails.graphURL).then(res => res.json());
-        let cases = null;
-        if (data['timeline'] === undefined) {
-            cases = data;
-        } else {
-            cases = data['timeline'];
+        let data = await fetch(url).then(res => res.json());
+        if (data['timeline'] !== undefined) {
+            data = data['timeline'];
         }
         const newGraphData = {
             fontColor: "white",
-            labels: Object.keys(cases[this.state.parameter]),
+            labels: Object.keys(data[parameter]),
             datasets: [
                 {
-                    label: `Total ${this.state.parameter}`,
+                    label: `Total ${parameter}`,
                     fill: false,
                     lineTension: 0,
                     backgroundColor: 'rgb(214, 29, 29)',
                     borderColor: "rgb(214, 29, 29)",
                     borderWidth: 0.5,
-                    data: Object.values(cases[this.state.parameter])
+                    data: Object.values(data[parameter])
                 }
             ]
         };
-        this.setState({graphData: newGraphData});
-        this.setState({loading: false });
+        await this.setState({graphData: newGraphData});
+        await this.setState({loading: false });
     }
 
     async componentDidUpdate(prevProps: Props) {
         if (prevProps.parameter !== this.props.parameter) {
             this.setState({parameter: this.props.parameter});
+            await this.updateData(this.props.parameter, this.props.countryDetails.graphURL);
         }
-        if (prevProps.countryDetails !== this.props.countryDetails) {
-            this.setState({countryDetails: this.props.countryDetails});
-            await this.updateData();
+        if (prevProps.countryDetails.graphURL !== this.props.countryDetails.graphURL) {
+            await this.setState({countryDetails: this.props.countryDetails});
+            await this.updateData(this.props.parameter, this.props.countryDetails.graphURL);
         }
+        // if (prevProps.countryDetails.countryName !== this.props.countryDetails.countryName) {
+        //     await this.setState({countryDetails: this.props.countryDetails});
+        // }
         if (prevProps.classNameCol1Graph !== this.props.classNameCol1Graph) {
-            this.setState({classNameCol1Graph: this.props.classNameCol1Graph});
+            await this.setState({classNameCol1Graph: this.props.classNameCol1Graph});
         }
     }
 
     async componentDidMount() {
-        await this.updateData();
-        // this.setState({loading: true });
-        // const data = await fetch(this.state.countryDetails.graphURL).then(res => res.json());
-        // const newGraphData = {
-        //     fontColor: "white",
-        //     labels: Object.keys(data[this.state.parameter]),
-        //     datasets: [
-        //         {
-        //             label: `Total ${this.state.parameter}`,
-        //             fill: false,
-        //             lineTension: 0,
-        //             backgroundColor: 'rgb(214, 29, 29)',
-        //             borderColor: "rgb(214, 29, 29)",
-        //             borderWidth: 0.5,
-        //             data: Object.values(data[this.state.parameter])
-        //         }
-        //     ]
-        // };
-        // this.setState({graphData: newGraphData});
-        // this.setState({loading: false });
+        await this.updateData(this.props.parameter, this.props.countryDetails.graphURL);
     }
 
     render() {

@@ -99,6 +99,12 @@ interface CountryDetails {
     graphURL: string,
 }
 
+interface TimelineData {
+    cases: Array<Object>,
+    deaths: Array<Object>,
+    recovered: Array<Object>
+}
+
 interface Features {
     type: FeatureGroup,
     features: [
