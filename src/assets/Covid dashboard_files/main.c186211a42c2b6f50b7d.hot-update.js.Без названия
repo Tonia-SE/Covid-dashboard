@@ -1,0 +1,32 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/resolve-url-loader/index.js?!./node_modules/sass-loader/dist/cjs.js?!./src/index.scss":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-oneOf-6-1!./node_modules/postcss-loader/src??postcss!./node_modules/resolve-url-loader??ref--5-oneOf-6-3!./node_modules/sass-loader/dist/cjs.js??ref--5-oneOf-6-4!./src/index.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _assets_covid_back_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/covid-back.jpg */ "./src/assets/covid-back.jpg");
+// Imports
+
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(true);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_assets_covid_back_jpg__WEBPACK_IMPORTED_MODULE_2__["default"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.i, "body {\n  margin: 0 auto;\n  background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + "); }\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale; }\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }\n\n.bg-light {\n  background-color: rgba(214, 29, 29, 0) !important; }\n\n.row {\n  margin-top: 2vh; }\n\n.first .second .third {\n  padding-right: 0 !important;\n  padding-left: 0 !important; }\n\n@media (max-width: 991px) {\n  .column-1 {\n    order: 2; } }\n\n@media (max-width: 575px) {\n  .column-3 {\n    order: 3; } }\n", "",{"version":3,"sources":["webpack://src/App.scss","webpack://src/index.scss"],"names":[],"mappings":"AAAA;EACE,cAAc;EACd,yDAAgD,EAAA;;ACClD;EACE,SAAS;EACT,8JAEY;EACZ,mCAAmC;EACnC,kCAAkC,EAAA;;AAGpC;EACE,+EACW,EAAA;;AAGb;EACI,iDAAgD,EAAA;;AAEpD;EACE,eACF,EAAA;;AAIA;EACE,2BAA2B;EAC3B,0BAA0B,EAAA;;AAI5B;EACI;IACI,QAAQ,EAAA,EACX;;AAGL;EACI;IACI,QAAQ,EAAA,EACX","sourcesContent":["body{\n  margin: 0 auto;\n  background-image: url('./assets/covid-back.jpg');\n}\n\n\n\n\n\n","@import '_variables';\n@import 'App';\n\nbody {\n  margin: 0;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n    sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\n    monospace;\n}\n\n.bg-light {\n    background-color: rgba(214, 29, 29, 0)!important;\n}\n.row {\n  margin-top: 2vh\n}\n\n\n\n.first .second .third {\n  padding-right: 0 !important;\n  padding-left: 0 !important;\n}\n\n\n@media (max-width: 991px) {\n    .column-1 {\n        order: 2;\n    }\n\n}\n@media (max-width: 575px) {\n    .column-3 {\n        order: 3;\n    }\n\n}\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ __webpack_exports__["default"] = (___CSS_LOADER_EXPORT___);
+
+
+/***/ })
+
+})
+//# sourceMappingURL=main.c186211a42c2b6f50b7d.hot-update.js.map

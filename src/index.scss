@@ -22,35 +22,23 @@ code {
   margin-top: 2vh
 }
 
-// .column-3 .col-xl-2 .col-lg-2 .col-md-6 .d-md-block .bg-light1 .table-countries
-// .col-1 .col-2 .col-3 .col-4 .col-5 .col-6 
-// .col-7 .col-8 .col-9 .col-10 .col-11 .col-12 {
-//   padding: 0 !important;
-// }
+
 
 .first .second .third {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
-// .container-fluid {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100vh;
-//   justify-content: space-between;
-// }
 
-// .col-md-2.d-md-block.bg-light1 {
-//     color: rgb(214, 29, 29)!important;
-//     flex-wrap: wrap!important;
-// }
 
-// .table-countries {
-//     margin-top: 1rem;
-// }
+@media (max-width: 991px) {
+    .column-1 {
+        order: 2;
+    }
 
-// .column-1,
-// .column-2,
-// .column-3 {
-//     padding-left: 6px!important;
-//     padding-right: 6px!important;
-// }
+}
+@media (max-width: 575px) {
+    .column-3 {
+        order: 3;
+    }
+
+}

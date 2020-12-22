@@ -145,52 +145,53 @@ export class Table2 extends React.Component<Props> {
                             </div>
                             { this.state.isFormVisible && <Form onfilterchange={(filterStringFromInput) => this.setState({filterString: filterStringFromInput})}/> }
                         </div>
-
-                        <table className="table-country table-responsive table table-striped table-sm ">
-                            <thead className="table-head">
-                                <tr>
-                                    <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
-                                            this.setState({isFormVisible: !this.state.isFormVisible});
-                                            this.setState({filterString: ''});}
-                                        } className="btn btn-outline-secondary keyboard" type="button">⌨</button></div></th>
-                                    <th>
-                                        <select className='select-country' onChange={(evt) => {
-                                                this.props.setGraphParameter(this.possibleGraphValues[Number(evt.target.value)]);
-                                                this.setState({value: `${evt.target.value}`});
+                        <div className="table2-wrapper">
+                            <table className="table-country table table-striped table-sm ">
+                                <thead className="table-head">
+                                    <tr>
+                                        <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
+                                                this.setState({isFormVisible: !this.state.isFormVisible});
+                                                this.setState({filterString: ''});}
+                                            } className="btn btn-outline-secondary keyboard" type="button">⌨</button></div></th>
+                                        <th>
+                                            <select className='select-country' onChange={(evt) => {
+                                                    this.props.setGraphParameter(this.possibleGraphValues[Number(evt.target.value)]);
+                                                    this.setState({value: `${evt.target.value}`});
+                                                }}>
+                                                <option className='table-point' value='0'>{this.state.possibleValues[0][0]}</option>
+                                                <option className='table-point' value='1'>{this.state.possibleValues[1][0]}</option>
+                                                <option className='table-point' value='2'>{this.state.possibleValues[2][0]}</option>
+                                            </select>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="table-body">
+                                    {this.state.countriesData.filter((country: Country) => {return country.country.includes(this.state.filterString);}).map((country: Country) => {
+                                        return (
+                                            <tr className='table-cell' key={country.country} onClick={() => {
+                                                this.setState({selectedCountryName: country.country});
+                                                this.setState({selectedCountryFlag: country.countryInfo.flag});
+                                                const countryDetails: CountryDetails = {
+                                                    countryUrl: `https://disease.sh/v3/covid-19/countries/${country.countryInfo.iso3}`,
+                                                    graphURL: `https://disease.sh/v3/covid-19/historical/${country.countryInfo.iso3}\?lastdays=100`,
+                                                    countryFlag: country.countryInfo.flag,
+                                                    countryName: country.country,
+                                                };
+                                                this.props.setCountryDetails(countryDetails);
                                             }}>
-                                            <option className='table-point' value='0'>{this.state.possibleValues[0][0]}</option>
-                                            <option className='table-point' value='1'>{this.state.possibleValues[1][0]}</option>
-                                            <option className='table-point' value='2'>{this.state.possibleValues[2][0]}</option>
-                                        </select>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody className="table-body">
-                                {this.state.countriesData.filter((country: Country) => {return country.country.includes(this.state.filterString);}).map((country: Country) => {
-                                    return (
-                                        <tr className='table-cell' key={country.country} onClick={() => {
-                                            this.setState({selectedCountryName: country.country});
-                                            this.setState({selectedCountryFlag: country.countryInfo.flag});
-                                            const countryDetails: CountryDetails = {
-                                                countryUrl: `https://disease.sh/v3/covid-19/countries/${country.countryInfo.iso3}`,
-                                                graphURL: `https://disease.sh/v3/covid-19/historical/${country.countryInfo.iso3}\?lastdays=100`,
-                                                countryFlag: country.countryInfo.flag,
-                                                countryName: country.country,
-                                            };
-                                            this.props.setCountryDetails(countryDetails);
-                                        }}>
-                                            <td >
-                                                <img className='flag' src={country.countryInfo.flag}/> {country.country}
-                                            </td>
-                                            <td>
-                                                {!this.props.isRelativeValues && country[dataField] }
-                                                {this.props.isRelativeValues && Math.floor(country[dataField]/Number(country['population']) * 100000) }
-                                            </td>
-                                        </tr>
-                                    );
-                                })}
-                            </tbody>
-                        </table>
+                                                <td >
+                                                    <img className='flag' src={country.countryInfo.flag}/> {country.country}
+                                                </td>
+                                                <td>
+                                                    {!this.props.isRelativeValues && country[dataField] }
+                                                    {this.props.isRelativeValues && Math.floor(country[dataField]/Number(country['population']) * 100000) }
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </>
             );

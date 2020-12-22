@@ -134,6 +134,9 @@ export class Graph extends React.Component<Props> {
                                             fontColor: "rgb(255, 255, 255, 0.5)",
                                             labelString: "date",
                                             weight: 2,
+                                            callback: function(value: string, index: number, values: string[]) {
+                                                return `${+value/1000000}M`;
+                                            }
                                         },
                                     }],
                                     xAxes: [{

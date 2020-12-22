@@ -10,13 +10,13 @@ interface Props {
     setClassNameCol1: (className: string) => void;
     setClassNameCol2: (className: string) => void;
     setClassNameCol3:(className: string) => void;
-    classNameCol1Total?: string; 
-    classNameCol1Table1?: string; 
+    classNameCol1Total?: string;
+    classNameCol1Table1?: string;
     classNameCol1Graph?: string;
     setClassNameCol1Total?: (className: string) => void;
     setClassNameCol1Table1?: (className: string) => void;
     setClassNameCol1Graph?: (className: string) => void;
-} 
+}
 
 export class Maximize extends React.Component<Props> {
     state={
