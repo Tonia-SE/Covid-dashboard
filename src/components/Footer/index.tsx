@@ -5,15 +5,13 @@ export class Footer extends React.Component {
     render() {
         return (
             <div className="row footer font-small blue">
-                <div className="footer-logo"></div>
                 <div className="footer-copyright text-right">
-                    <div className="copyright-title">© 2020 Copyright:</div>
-                    <div className="copyright-wrapper">
-                        <div><a href="https://github.com/Tonia-SE" target="blank">https://github.com/Tonia-SE</a></div>
-                        <div><a href="https://github.com/pannage" target="blank">https://github.com/pannage</a></div>
-                        <div><a href="https://github.com/efando" target="blank">https://github.com/efando</a></div>
+                    <div><a className="link-gh" href="https://github.com/Tonia-SE" target="blank">Tonia-SE</a></div>
+                        <div><a className="link-gh"href="https://github.com/pannage" target="blank">pannage</a></div>
+                        <div><a className="link-gh"href="https://github.com/efandor" target="blank">efandor</a></div>
+                        <span className="copyright-title">2020</span>
+                        <a className="link-rs" href="https://rs.school/js/"></a>
                     </div>
-                </div>
             </div>
         );
     }

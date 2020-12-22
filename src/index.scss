@@ -19,6 +19,19 @@ code {
     background-color: rgba(214, 29, 29, 0)!important;
 }
 
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.column-1,
+.column-2,
+.column-3 {
+  background-image: url('./assets/covid-back.jpg');
+}
+
 .col-md-2.d-md-block.bg-light1 {
     color: rgb(214, 29, 29)!important;
     flex-wrap: wrap!important;
