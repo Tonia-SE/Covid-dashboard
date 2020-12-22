@@ -15,8 +15,12 @@
 	fill: rgb(214, 29, 29);
 }
 
+.map-container {
+  height: 67vh !important;
+}
+
 @media (max-width: 1024px) {
   .map-container {
-    height: 63vh !important;
+    height: 67vh !important;
   }
 }

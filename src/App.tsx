@@ -21,9 +21,9 @@ const initialCountryDetails: CountryDetails = {
 const table1PossibleHeaders: TableHeaders = {
     // Текст заголовков таблицы, можно менять на свое усмотрение
     all: {
-        th1: 'Total cases',
-        th2: 'Total deaths',
-        th3: 'Total recovered'
+        th1: 'Cases',
+        th2: 'Deaths',
+        th3: 'Recovered'
     },
     // Текст заголовков таблицы, можно менять на свое усмотрение
     today: {
@@ -58,9 +58,9 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     }
 };
 
-export const initialClassNameCol1 = 'column-1 col-xl-4 col-lg-4 col-md-6 d-md-block bg-light table-countries';
-export const initialClassNameCol2 = 'column-2 col-xl-6 col-lg-6 col-md-12 pt-3';
-export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-2 col-md-6 d-md-block bg-light1 table-countries';
+export const initialClassNameCol1 = 'column-1 col-xl-4 col-lg-4 col-md-6 d-md-block bg-light table-countries ml-0 mr-0 pr-0 pl-0';
+export const initialClassNameCol2 = 'column-2 col-xl-6 col-lg-6 col-md-12 ml-0 mr-0 pr-2 pl-2';
+export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-2 col-md-6 d-md-block bg-light1 table-countries ml-0 mr-0 pr-0 pl-0 third';
 
 export const initialClassNameCol1Total = 'total-cases-wrapper';
 export const initialClassNameCol1Table1 = 'table-wrapper';
