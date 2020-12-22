@@ -69,9 +69,10 @@ export class Map extends React.Component<Props> {
     render() {
         const legendItemsReverse = [...legendItems].reverse();
         return (
-            <>
-                <h1 className="h2">COVID-19 Dashboard</h1>
-                <div className="justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <>  <div className="h1">
+                    <h1>COVID-19 Dashboard</h1>
+                </div>
+                <div className="justify-content-between flex-wrap flex-md-nowrap align-items-center">
                     <div className="maximise-wrapper">
                     <CountryName countryName={this.state.countryDetails.countryName} countryFlag={this.state.countryDetails.countryFlag} />
                         <div className="switcher-wrapper">
