@@ -119,6 +119,14 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .third .switcher-wrapper {
+        width: 8vw;
+    }
+}
+
+
+
 @media (max-width: 991px) {
     .input-group {
         justify-content: flex-start;
@@ -127,6 +135,67 @@
         left: 0;
     }
 }
+
+@media (max-width: 768px) {
+    .first-wrapper-btns label {
+        width: 5vw;
+    }
+
+    .third .switcher-wrapper {
+        width: 10vw;
+        margin-right: 3vw;
+    }
+    .first-wrapper-btns label:after {
+        width: 2.5vw;
+    }
+    .select-country {
+        width: 12vw;
+    }
+
+}
+
+@media (max-width: 680px) {
+    .first-wrapper-btns label {
+        width: 6vw;
+    }
+
+    .third .switcher-wrapper {
+        width: 12vw;
+        margin-right: 3vw;
+    }
+    .first-wrapper-btns label:after {
+        width: 3vw;
+    }
+}
+
+@media (max-width: 530px) {
+    .first-wrapper-btns label {
+        width: 7vw;
+    }
+
+    .third .switcher-wrapper {
+        width: 14vw;
+        margin-right: 3.5vw;
+    }
+    .first-wrapper-btns label:after {
+        width: 3.5vw;
+    }
+}
+@media (max-width: 400px) {
+    .first-wrapper-btns label {
+        width: 9vw;
+    }
+
+    .third .switcher-wrapper {
+        width: 18vw;
+        margin-right: 4.5vw;
+    }
+    .first-wrapper-btns label:after {
+        width: 4.5vw;
+    }
+}
+
+
 
 @media (max-width: 645px) {
     .simple-keyboard-main.simple-keyboard {
@@ -145,10 +214,11 @@
         height: 40vh;
         overflow: scroll;
     }
-    
+
     .input-group {
         margin-top: 4rem;
         right: -30vw;
     }
 
 }
+
