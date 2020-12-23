@@ -20,7 +20,7 @@
     background-color: rgba(0,0,0,0)!important;
     border-color:  rgba(0,0,0,0)!important;
 }
-
+t
 .btn-primary:hover {
     color: #fff !important;
     background-color: rgba(0,0,0,0)!important;
@@ -29,59 +29,25 @@
     transform: scale(1.2);
 }
 
-// .btn-primary:focus, .btn-primary.focus {
-//     box-shadow:  rgba(0,0,0,0)!important;
-// }
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow:  rgba(0,0,0,0)!important;
+}
 
-// .btn-primary:focus, .btn-primary.focus {
-//     box-shadow: 0 0 0 0.2rem rgba(0,0,0,0);
-// }
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0);
+}
 
-// .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
-//     box-shadow: 0 0 0 0.2rem rgba(0,0,0,0);
-// }
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0,0,0,0);
+}
 
-// .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
-//     box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0);
-// }
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0);
+}
 
-// .btn:focus, .btn.focus {
-//     outline: 0;
-//     box-shadow:  rgba(0,0,0,0)!important;
-// }
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow:  rgba(0,0,0,0)!important;
+}
 
-// @keyframes pulse {
-//     0% {
-//       transform: scaleX(1) scaleY(1);
-//     }
-//     10% {
-//       transform: scaleX(0.85) scaleY(0.85);
-//     }
-//     20% {
-//       transform: scaleX(1) scaleY(1);
-//     }
-//     30% {
-//       transform: scaleX(0.85) scaleY(0.85);
-//     }
-//     40% {
-//       transform: scaleX(1) scaleY(1);
-//     }
-//     50% {
-//       transform: scaleX(0.85) scaleY(0.85);
-//     }
-//     60% {
-//       transform: scaleX(1) scaleY(1);
-//     }
-//     70% {
-//       transform: scaleX(0.85) scaleY(0.85);
-//     }
-//     80% {
-//       transform: scaleX(1) scaleY(1);
-//     }
-//     90% {
-//       transform: scaleX(0.85) scaleY(0.85);
-//     }
-//     100% {
-//       transform: scaleX(1) scaleY(1);
-//     }
-//}
+

@@ -84,29 +84,6 @@ a:hover {
     transition: 1s;
 }
 
-// @media (max-width: 1300px) {
-//     .footer {
-//         margin-top: 0;
-//     }
-
-//     .footer-logo {
-//         height: 5rem;
-//         width: 20%
-//     }
-//     .copyright-wrapper {
-//         display: flex;
-//         justify-content: space-between;
-//         width: 39rem;
-//     }
-//     .copyright-title {
-//         width: 10rem;
-//     }
-
-//     .footer-copyright {
-//         width: 58%
-//     }
-// }
-
 
 @media (max-width: 800px) {
     .footer-copyright {
@@ -119,14 +96,3 @@ a:hover {
         width: 80vw;
     }
 }
-
-// @media (max-width: 375px) {
-//   .copyright-title {
-//         font-size: 0.7rem;
-//     }
-
-//     .footer-copyright {
-//         font-size: 0.7rem;
-//         padding-bottom: 1rem;
-//     }
-// }

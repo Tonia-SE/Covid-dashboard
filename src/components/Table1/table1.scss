@@ -73,6 +73,10 @@
 
 }
 
+.maximise-wrapper {
+    margin: 0 auto;
+}
+
 @media (max-width: 375px) {
     .cases-head {
         padding-left: .3rem!important;
@@ -88,3 +92,17 @@
     }
 
 }
+
+@media (max-width: 575.98px) {
+    .table-responsive-sm {
+        display: table;
+
+    }
+}
+
+@media (max-width: 767.98px) {
+    .table-responsive-md {
+        display: table;
+    }
+}
+

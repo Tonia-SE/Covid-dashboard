@@ -58,9 +58,9 @@ const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     }
 };
 
-export const initialClassNameCol1 = 'column-1 col-xl-4 col-lg-4 col-md-6 d-md-block bg-light table-countries ml-0 mr-0 pr-0 pl-0';
-export const initialClassNameCol2 = 'column-2 col-xl-6 col-lg-6 col-md-12 ml-0 mr-0 pr-2 pl-2';
-export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-2 col-md-6 d-md-block bg-light1 table-countries ml-0 mr-0 pr-0 pl-0 third';
+export const initialClassNameCol1 = 'column-1 col-xl-4 col-lg-4 col-md-7 col-sm-8 d-md-block bg-light table-countries ml-0 mr-0 pr-0 pl-0';
+export const initialClassNameCol2 = 'column-2 col-xl-6 col-lg-6 col-md-12 col-sm-12 ml-0 mr-0 pr-2 pl-2';
+export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-2 col-md-5 col-sm-4 d-md-block bg-light1 table-countries ml-0 mr-0 pr-0 pl-0 third';
 
 export const initialClassNameCol1Total = 'total-cases-wrapper';
 export const initialClassNameCol1Table1 = 'table-wrapper';
@@ -157,7 +157,7 @@ function App() {
                                 setClassNameCol3={setClassNameCol3}
                                 setClassNameCol1Total={setClassNameCol1Total}
                                 setClassNameCol1Table1={setClassNameCol1Table1}
-                                setClassNameCol1Graph={setClassNameCol1Graph}                                
+                                setClassNameCol1Graph={setClassNameCol1Graph}
                                 tableHead={table1Head}
                                 tableData={table1Data}
                                 parameter={graphParameter}/>
