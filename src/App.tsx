@@ -79,7 +79,6 @@ function App() {
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
     const [graphParameter, setGraphParameter] = useState(table1DataPossibleAttrs.all.td1);
-    // const [switch1State, swithcGroup1] = useState(false);
     const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
     const [classNameCol1, setClassNameCol1] = useState(initialClassNameCol1);
@@ -89,6 +88,9 @@ function App() {
     const [classNameCol1Table1, setClassNameCol1Table1] = useState(initialClassNameCol1Table1);
     const [classNameCol1Graph, setClassNameCol1Graph] = useState(initialClassNameCol1Graph);
     const [countries, setCountries] = useState([{}]);
+
+    const [switchGroup1State, swithcGroup1] = useState(false);
+    const [switchGroup2State, swithcGroup2] = useState(false);
 
     const update1Table1 = (switcherState: boolean) => {
         if (!switcherState) {
@@ -147,7 +149,12 @@ function App() {
                                 setClassNameCol3={setClassNameCol3}
                                 setClassNameCol1Total={setClassNameCol1Total}
                                 setClassNameCol1Table1={setClassNameCol1Table1}
-                                setClassNameCol1Graph={setClassNameCol1Graph}/>
+                                setClassNameCol1Graph={setClassNameCol1Graph}
+                                switchGroup1State={switchGroup1State}
+                                switchGroup2State={switchGroup2State}
+                                switchGroup1={swithcGroup1}
+                                switchGroup2={swithcGroup2}               
+                        />
                         <Graph countryDetails={countryDetails}
                                 classNameCol1Graph={classNameCol1Graph}
                                 updateTable1={update1Table1}
@@ -160,7 +167,12 @@ function App() {
                                 setClassNameCol1Graph={setClassNameCol1Graph}
                                 tableHead={table1Head}
                                 tableData={table1Data}
-                                parameter={graphParameter}/>
+                                parameter={graphParameter}
+                                switchGroup1State={switchGroup1State}
+                                switchGroup2State={switchGroup2State}
+                                switchGroup1={swithcGroup1}
+                                switchGroup2={swithcGroup2}
+                        />
                     </div>
                     <div className={classNameCol2}>
                         <Map countryDetails={countryDetails}
@@ -171,7 +183,12 @@ function App() {
                             setClassNameCol2={setClassNameCol2}
                             setClassNameCol3={setClassNameCol3}
                             countries={countries}
-                            setCountryDetails={setCountryDetails}/>
+                            setCountryDetails={setCountryDetails}
+                            switchGroup1State={switchGroup1State}
+                            switchGroup2State={switchGroup2State}
+                            switchGroup1={swithcGroup1}
+                            switchGroup2={swithcGroup2}    
+                        />
                     </div>
                     <div className={classNameCol3}>
                         <Table2 setCountryDetails={setCountryDetails}
@@ -186,6 +203,10 @@ function App() {
                             tableData={table1Data}
                             isRelativeValues={isRelativeValues}
                             setGraphParameter={setGraphParameter}
+                            switchGroup1State={switchGroup1State}
+                            switchGroup2State={switchGroup2State}
+                            switchGroup1={swithcGroup1}
+                            switchGroup2={swithcGroup2}
                             />
                     </div>
                 </div>

@@ -21,6 +21,10 @@ interface Props {
     setClassNameCol1Table1: (className: string) => void;
     setClassNameCol1Graph: (className: string) => void;
     classNameCol1Graph: string;
+    switchGroup1State: boolean,
+    switchGroup2State: boolean,
+    switchGroup1: (swithcerState: boolean) => void,
+    switchGroup2: (swithcerState: boolean) => void,
     parameter: string;
     tableHead: {
         th1: string,
@@ -51,21 +55,26 @@ export class Graph extends React.Component<Props> {
         if (data['timeline'] !== undefined) {
             data = data['timeline'];
         }
-        const newGraphData = {
-            fontColor: "white",
-            labels: Object.keys(data[parameter]),
-            datasets: [
-                {
-                    label: `Total ${parameter}`,
-                    fill: false,
-                    lineTension: 0,
-                    backgroundColor: 'rgb(214, 29, 29)',
-                    borderColor: "rgb(214, 29, 29)",
-                    borderWidth: 0.5,
-                    data: Object.values(data[parameter])
-                }
-            ]
-        };
+        let newGraphData = {};
+        if (data[parameter] !== undefined) {
+            newGraphData = {
+                fontColor: "white",
+                labels: Object.keys(data[parameter]),
+                datasets: [
+                    {
+                        label: `${parameter} in last 100 days`,
+                        fill: false,
+                        lineTension: 0,
+                        backgroundColor: 'rgb(214, 29, 29)',
+                        borderColor: "rgb(214, 29, 29)",
+                        borderWidth: 0.5,
+                        data: Object.values(data[parameter])
+                    }
+                ]
+            };            
+        } else {
+            newGraphData = {datasets: [{ label: 'Sorry, no statistics data for this country'}]};
+        }
         await this.setState({graphData: newGraphData});
         await this.setState({loading: false });
     }
@@ -79,9 +88,6 @@ export class Graph extends React.Component<Props> {
             await this.setState({countryDetails: this.props.countryDetails});
             await this.updateData(this.props.parameter, this.props.countryDetails.graphURL);
         }
-        // if (prevProps.countryDetails.countryName !== this.props.countryDetails.countryName) {
-        //     await this.setState({countryDetails: this.props.countryDetails});
-        // }
         if (prevProps.classNameCol1Graph !== this.props.classNameCol1Graph) {
             await this.setState({classNameCol1Graph: this.props.classNameCol1Graph});
         }
@@ -98,8 +104,8 @@ export class Graph extends React.Component<Props> {
                     <div className="maximise-wrapper">
                         <CountryName countryName='' countryFlag={this.state.countryDetails.countryFlag} />
                         <div className="switcher-wrapper">
-                            <Switcher onChange={this.props.updateTable1} />
-                            <Switcher onChange={this.props.changeValuesTable1}/>
+                            <Switcher onChange={this.props.updateTable1} switchGroupState={this.props.switchGroup1State} switchGroup={this.props.switchGroup1}/>
+                            <Switcher onChange={this.props.changeValuesTable1} switchGroupState={this.props.switchGroup2State} switchGroup={this.props.switchGroup2}/>
                         </div>
                         <Maximize classNameCol1={'column col-md-6 d-md-block maximise-style bg-light table-countries'}
                                     classNameCol2={"column col-md-6 d-none pt-3"}
