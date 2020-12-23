@@ -6,9 +6,11 @@ interface SwitcherProps {
     switchGroup?: (value: boolean)=>void,
     onChange?: (value: boolean) => void,
 }
+
 interface State {
     checked: boolean
 }
+
 export class Switcher extends React.Component<SwitcherProps, State> {
     constructor(props: SwitcherProps) {
         super(props);

@@ -7,16 +7,10 @@
 
 .third .maximise-wrapper {
     @include maximise-wrapper;
-    //justify-content: space-between;
 }
-
-// .third .country-name-wrapper {
-//     margin-right: 0;
-// }
 
 .third .switcher-wrapper {
     @include switcher-wrapper;
-    //margin-right: 0;
 }
 
 .select-country {
@@ -24,7 +18,9 @@
     background: transparent;
     border: none;
     outline: none;
-    width: 9rem;
+    width: 7vw;
+    margin-bottom: 0.3vh;
+    font-weight: 500;
 }
 
 .maximise-style {
@@ -34,9 +30,6 @@
 .third .country-name-wrapper {
     display: none;
 }
-// .table-head thead {
-//     border-top: none !important;
-// }
 
 .table-point {
     color: #000;
@@ -55,6 +48,8 @@
     color: rgb(255, 255, 255);
     justify-content: flex-start;
     align-items: center;
+    font-weight: 500;
+    margin-left: 0.3vw;
 }
 
 .title-wrapper span {
@@ -71,23 +66,17 @@
     transform: scale(1.1);
 }
 
-.select-country {
-    width: 17vw;
-    margin-bottom: 5px;
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0)!important;
 }
 
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+}
 
-// .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
-//     box-shadow: 0 0 0 0.2rem  rgba(0,0,0,0)!important;
-// }
-
-// .btn-outline-secondary:not(:disabled):not(.disabled):active:focus, .btn-outline-secondary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-secondary.dropdown-toggle:focus {
-//     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
-// }
-
-// .btn-outline-secondary:focus, .btn-outline-secondary.focus {
-//     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
-// }
+.btn-outline-secondary:focus, .btn-outline-secondary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0) !important;
+}
 
 .input-group {
     position: absolute;
@@ -104,24 +93,28 @@
 
 .flag {
     height: 2vh !important;
+    margin-right: 0.5vw;
+    margin-left: 0.2vw;
 }
 
 .keyboard {
     color: white;
 }
 
-img {
-    margin-right: 0.5vw;
-    margin-left: 0.2vw;
-}
-
-
-@media (max-width: 992px) {
+@media (max-width: 1350px) {
     .table-responsive {
         margin-bottom: 4rem;
     }
 
+    .flag {
+        height: 1.5vh !important;
+    }
+
+    .select-country {
+        margin-bottom: 0.6vh;
+    }
 }
+
 @media (max-width: 575px) {
     .table2 {
         height: 50vh;
@@ -131,5 +124,4 @@ img {
         height: 40vh;
         overflow: scroll;
     }
-
 }

@@ -11,8 +11,6 @@ function renderCountries(mapStyle, countryGEOJson, parameter) {
   );
 }
 
-// Нужно настроить работу с props { countries, setCountryDetails, parameter }
-// parameter должен сохраняться в state и нужно отслеживать его изменение
 class CovidMap extends React.Component {
 
   constructor(props) {    
@@ -28,12 +26,6 @@ class CovidMap extends React.Component {
       fillOpacity: 1,
     };
   }
-
-  // componentDidUpdate = (prevProps) => {
-  //   if (prevProps.parameter !== this.props.parameter) {
-  //     this.setState({parameter: this.props.parameter, isUpdated: true});
-  //   }
-  // };
 
   onEachCountry = (country, layer) => {
     layer.options.fillColor = country.properties[`${this.props.parameter}Color`];
@@ -62,7 +54,7 @@ class CovidMap extends React.Component {
     return (
       <MapContainer className="map-container" style={{ height: "65vh" }} zoom={2} minZoom={1} maxZoom={4} center={[20, 20]}>
         <GeoJSON
-          key = {this.props.parameter} // dirty hack to make the map re-render
+          key = {this.props.parameter} 
           style={{
             fillColor: "white",
             weight: 1,

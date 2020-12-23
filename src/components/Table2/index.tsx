@@ -5,7 +5,7 @@ import { Switcher } from '../Switcher';
 import { Spinner } from '../Spinner';
 import { CountryName } from '../CountryName';
 import './table2.scss';
-import { Country, CountryDetails, TableHeaders } from 'src/type';
+import { Country, CountryDetails } from 'src/type';
 
 interface Props {
     setClassNameCol1: (className: string) => void;
@@ -58,7 +58,6 @@ export class Table2 extends React.Component<Props> {
 
     sortCountriesData(parameter: string) {
         this.state.countriesData.sort((a:Country, b:Country) => {
-            // Use toUpperCase() to ignore character casing
             const bandA = a[parameter] ;
             const bandB = b[parameter];
             let comparison = 0;
@@ -130,19 +129,26 @@ export class Table2 extends React.Component<Props> {
                             <table className="table-country table table-striped table-sm ">
                                 <thead className="table-head">
                                     <tr>
-                                        <th> <div className='title-wrapper' > <span>Country</span><button onClick={() => {
-                                                this.setState({isFormVisible: !this.state.isFormVisible});
-                                                this.setState({filterString: ''});}
-                                            } className="btn btn-outline-secondary keyboard" type="button">⌨</button></div></th>
+                                        <th> 
+                                            <div className='title-wrapper' > 
+                                                <span>Country</span>
+                                                <button onClick={() => {
+                                                    this.setState({isFormVisible: !this.state.isFormVisible});
+                                                    this.setState({filterString: ''});}
+                                                } className="btn btn-outline-secondary keyboard" type="button">🔎</button>
+                                            </div>
+                                        </th>
                                         <th>
-                                            <select className='select-country' onChange={(evt) => {
-                                                    this.props.setGraphParameter(this.possibleGraphValues[Number(evt.target.value)]);
-                                                    this.setState({value: `${evt.target.value}`});
-                                                }}>
-                                                <option className='table-point' value='0'>{this.state.possibleValues[0][0]}</option>
-                                                <option className='table-point' value='1'>{this.state.possibleValues[1][0]}</option>
-                                                <option className='table-point' value='2'>{this.state.possibleValues[2][0]}</option>
-                                            </select>
+                                            <div className='title-wrapper' > 
+                                                <select className='select-country' onChange={(evt) => {
+                                                        this.props.setGraphParameter(this.possibleGraphValues[Number(evt.target.value)]);
+                                                        this.setState({value: `${evt.target.value}`});
+                                                    }}>
+                                                    <option className='table-point' value='0'>{this.state.possibleValues[0][0]}</option>
+                                                    <option className='table-point' value='1'>{this.state.possibleValues[1][0]}</option>
+                                                    <option className='table-point' value='2'>{this.state.possibleValues[2][0]}</option>
+                                                </select>
+                                            </div>
                                         </th>
                                     </tr>
                                 </thead>
@@ -177,6 +183,5 @@ export class Table2 extends React.Component<Props> {
                 </div>
             </>
         );
-        //}
     }
 }

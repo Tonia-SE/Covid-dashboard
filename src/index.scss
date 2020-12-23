@@ -22,23 +22,19 @@ code {
   margin-top: 2vh
 }
 
-
-
 .first .second .third {
   padding-right: 0 !important;
   padding-left: 0 !important;
 }
 
-
 @media (max-width: 991px) {
     .column-1 {
         order: 2;
     }
-
 }
+
 @media (max-width: 575px) {
     .column-3 {
         order: 3;
     }
-
 }

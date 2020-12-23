@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.scss';
-// to do добавить логотип школы в футер
+
 export class Footer extends React.Component {
     render() {
         return (

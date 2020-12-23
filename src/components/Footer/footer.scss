@@ -9,9 +9,7 @@
     align-items: center;
     margin-left: 0.5vw;
     margin-right: 0.5vw;
-    // margin-bottom: 5px;
     height: 7vh;
-    // min-height: 7vh;
     flex-grow: 1;
     left: 0;
     right: 0;
@@ -83,7 +81,6 @@ a:hover {
     text-shadow: #fff;
     transition: 1s;
 }
-
 
 @media (max-width: 800px) {
     .footer-copyright {

@@ -7,7 +7,6 @@ import './table1.scss';
 import { initialClassNameCol1Table1 } from '../../App';
 import { CountryDetails } from 'src/type';
 
-
 interface Props {
     countryDetails: CountryDetails;
     tableHead: {
