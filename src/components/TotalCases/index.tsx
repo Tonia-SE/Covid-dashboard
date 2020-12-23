@@ -26,19 +26,15 @@ export class TotalCases extends React.Component<Props> {
             this.setState({classNameCol1Total: this.props.classNameCol1Total});
         }
     }
-    // заголовок TOTAL CASES можно заменить на что-то вроде Now registred 100-500 cases in the world
+
     render() {
         return (
             <div className={this.state.classNameCol1Total}>
                 <div className="total-cases-txt-wrap">
-                    <div className="total-cases-title">Registred</div>
-                    <div className="total-cases-count">{this.state.totalCases}</div>
+                    <p className="total-cases-title">
+                        Registred {this.state.totalCases} cases for today {this.state.date}
+                    </p>
                 </div>
-                <div className="total-cases-txt-wrap">
-                    <div className="total-cases-title">Cases for today</div>
-                    <div className="total-cases-count">{this.state.date}</div>
-                </div>
-
             </div>
         );
     }

@@ -4,7 +4,6 @@ import { Switcher } from '../Switcher';
 import { CountryName } from '../CountryName';
 import { initialClassNameCol1Graph } from '../../App';
 import { Line } from 'react-chartjs-2';
-
 import './graph.scss';
 import { CountryDetails } from 'src/type';
 import { throws } from 'assert';

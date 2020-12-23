@@ -7,10 +7,6 @@ import { Footer } from './components/Footer';
 import { TotalCases } from './components/TotalCases';
 import { CountryDetails, TableHeaders, TableDataPossibleAttrs } from './type';
 
-//const initialUrl: string = "https://disease.sh/v3/covid-19/all";
-
-const graphInitialURL: string = "https://disease.sh/v3/covid-19/historical/all?lastdays=100";
-
 const initialCountryDetails: CountryDetails = {
     countryUrl: "https://disease.sh/v3/covid-19/all",
     graphURL: "https://disease.sh/v3/covid-19/historical/all?lastdays=100",
@@ -19,25 +15,21 @@ const initialCountryDetails: CountryDetails = {
 };
 
 const table1PossibleHeaders: TableHeaders = {
-    // Текст заголовков таблицы, можно менять на свое усмотрение
     all: {
         th1: 'Cases',
         th2: 'Deaths',
         th3: 'Recovered'
     },
-    // Текст заголовков таблицы, можно менять на свое усмотрение
     today: {
         th1: 'Today\'s cases',
         th2: 'Today\'s deaths',
         th3: 'Today\'s recovered'
     },
-    // Текст заголовков таблицы, можно менять на свое усмотрение
     relativeAll: {
         th1: 'Cases per   100 000',
         th2: 'Deaths per  100 000',
         th3: 'Recovered per  100 000'
     },
-    // Текст заголовков таблицы, можно менять на свое усмотрение
     relativeToday: {
         th1: 'Today\'s cases per 100 000',
         th2: 'Today\'s deaths per 100 000',
@@ -65,13 +57,6 @@ export const initialClassNameCol3 = 'column-3 col-xl-2 col-lg-2 col-md-5 col-sm-
 export const initialClassNameCol1Total = 'total-cases-wrapper';
 export const initialClassNameCol1Table1 = 'table-wrapper';
 export const initialClassNameCol1Graph = 'table-graph-wrapper';
-
-
-// async componentDidUpdate(prevProps: SwitcherProps) {
-//         if (prevProps.isGroupSwitched !== this.props.isGroupSwitched) {
-//             this.toggleStatus();
-//         }
-//     }
 
 function App() {
 

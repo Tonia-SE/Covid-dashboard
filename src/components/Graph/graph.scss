@@ -1,18 +1,17 @@
 @import './../../variables';
 
-
 .table-graph-wrapper {
     height: 45vh;
     @include table_background_gradient;
     margin: 0.5vh .2rem 0rem .2rem;
 }
 
-.maximise-wrapper {
-    @include maximise-wrapper;
-}
-
 .switcher-wrapper {
     @include switcher-wrapper;
+}
+
+.maximise-wrapper {
+    @include maximise-wrapper;
 }
 
 .maximise-style {
@@ -24,4 +23,18 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-end;
+}
+
+canvas {
+    height: 35vh !important;
+}
+
+@media (max-width: 768px) {
+    .switcher-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 10vw;
+        margin-right: 1vw;
+    }
 }

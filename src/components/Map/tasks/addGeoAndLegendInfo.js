@@ -76,9 +76,7 @@ export default function addGeoAndLegendInfo (covidCountries) {
     if (legendTodayDeaths != null) country.properties.todayDeathsColor = legendTodayDeaths.color;
     if (legendRecovered != null) country.properties.recoveredColor = legendRecovered.color;
     if (legendTodayRecovered != null) country.properties.todayRecoveredColor = legendTodayRecovered.color;
-
   }
 
   return features;
-
 }
