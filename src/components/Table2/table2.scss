@@ -79,16 +79,20 @@
 }
 
 .input-group {
+    margin-top: 0;
     position: absolute;
+    right: 17vw;
     top: 5rem;
     display: flex;
+    justify-content: flex-end;
     flex-wrap: wrap;
     align-items: stretch;
-    width: 70%;
+    width: min-content;
 }
 
-.input-group {
-    margin-top: 0;
+.form-control {
+    max-width: 300px;
+    user-select: none;
 }
 
 .flag {
@@ -115,6 +119,23 @@
     }
 }
 
+@media (max-width: 991px) {
+    .input-group {
+        justify-content: flex-start;
+        margin-top: 4rem;
+        right: unset;
+        left: 0;
+    }
+}
+
+@media (max-width: 645px) {
+    .simple-keyboard-main.simple-keyboard {
+        width: 95vw;
+        min-width: 300px;
+        background: none;
+    }
+}
+
 @media (max-width: 575px) {
     .table2 {
         height: 50vh;
@@ -124,4 +145,10 @@
         height: 40vh;
         overflow: scroll;
     }
+    
+    .input-group {
+        margin-top: 4rem;
+        right: -30vw;
+    }
+
 }

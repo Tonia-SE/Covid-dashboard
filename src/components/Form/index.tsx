@@ -15,7 +15,7 @@ export class Form extends React.Component<Props> {
     onChange: (value: any) => this.onChange(value),
     onKeyPress: (button: any) => this.onKeyPress(button),
     theme: "simple-keyboard hg-theme-default hg-layout-default",
-    physicalKeyboardHighlight: true,
+    physicalKeyboardHighlight: false,
     syncInstanceInputs: true,
     mergeDisplay: true,
     debug: true
@@ -59,6 +59,7 @@ export class Form extends React.Component<Props> {
               className="form-control"
               value={this.state.input}
               placeholder={"Country"}
+              disabled
               onChange={(event) => this.onChange(event)}
           />
           <div className={"keyboardContainer"}>
