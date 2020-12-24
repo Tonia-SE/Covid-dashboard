@@ -3,13 +3,6 @@ import { MapContainer, GeoJSON } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
 import "./CovidMap.scss";
-import { throws } from "assert";
-
-function renderCountries(mapStyle, countryGEOJson, parameter) {
-   return (
-    <GeoJSON style={mapStyle} data={countryGEOJson} onEachFeature={onEachCountry} />
-  );
-}
 
 class CovidMap extends React.Component {
 
