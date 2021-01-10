@@ -1,52 +1,53 @@
 import React, {useState} from 'react';
-import { Table1 } from './components/Table1';
-import { Graph } from './components/Graph';
-import { Map } from './components/Map';
-import { Table2 } from './components/Table2';
-import { Footer } from './components/Footer';
-import { TotalCases } from './components/TotalCases';
+import { Table1 } from './components/Table1/table1';
+import { Graph } from './components/Graph/graph';
+import { Map } from './components/Map/Map';
+import { Table2 } from './components/Table2/table2';
+import { Footer } from './components/Footer/footer';
+import { TotalCases } from './components/TotalCases/total-cases';
 import { CountryDetails, TableHeaders, TableDataPossibleAttrs } from './type';
+import { allCountryUrl, graphUrl } from './consts';
 
 const initialCountryDetails: CountryDetails = {
-    countryUrl: "https://disease.sh/v3/covid-19/all",
-    graphURL: "https://disease.sh/v3/covid-19/historical/all?lastdays=100",
+    countryUrl: allCountryUrl,
+    graphURL: graphUrl,
     countryFlag: '',
     countryName: 'Global',
 };
 
 const table1PossibleHeaders: TableHeaders = {
     all: {
-        th1: 'Cases',
-        th2: 'Deaths',
-        th3: 'Recovered'
+        th1: `Cases`,
+        th2: `Deaths`,
+        th3: `Recovered`
     },
     today: {
-        th1: 'Today\'s cases',
-        th2: 'Today\'s deaths',
-        th3: 'Today\'s recovered'
+        th1: `Today's cases`,
+        th2: `Today's deaths`,
+        th3: `Today's recovered`
     },
     relativeAll: {
-        th1: 'Cases per   100 000',
-        th2: 'Deaths per  100 000',
-        th3: 'Recovered per  100 000'
+        th1: `Cases per   100 000`,
+        th2: `Deaths per  100 000`,
+        th3: `Recovered per  100 000`
     },
     relativeToday: {
-        th1: 'Today\'s cases per 100 000',
-        th2: 'Today\'s deaths per 100 000',
-        th3: 'Today\'s recovered per 100 000'
+        th1: `Today's cases per 100 000`,
+        th2: `Today's deaths per 100 000`,
+        th3: `Today's recovered per 100 000`
     },
 };
 
 const table1DataPossibleAttrs:TableDataPossibleAttrs = {
     all: {
-        td1: 'cases',
-        td2: 'deaths',
-        td3: 'recovered'
+        td1: `cases`,
+        td2: `deaths`,
+        td3: `recovered`
     },
     today: {
-        td1: 'todayCases',
-        td2: 'todayDeaths',
-        td3: 'todayRecovered'
+        td1: `todayCases`,
+        td2: `todayDeaths`,
+        td3: `todayRecovered`
     }
 };
 
@@ -64,7 +65,7 @@ function App() {
     const [isRelativeValues, changeValuesTable1] = useState(false);
     const [isToday, setToday] = useState(false);
     const [graphParameter, setGraphParameter] = useState(table1DataPossibleAttrs.all.td1);
-    const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); // setTable1Head - коллбек, который делает реакт
+    const [table1Head, setTable1Head] = useState(table1PossibleHeaders.all); 
     const [table1Data, setTable1Data] = useState(table1DataPossibleAttrs.all);
     const [classNameCol1, setClassNameCol1] = useState(initialClassNameCol1);
     const [classNameCol2, setClassNameCol2] = useState(initialClassNameCol2);

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Maximize } from '../MaximiseButton';
-import { Form } from '../Form';
-import { Switcher } from '../Switcher';
-import { Spinner } from '../Spinner';
-import { CountryName } from '../CountryName';
+import { Maximize } from '../MaximiseButton/maximiseButton';
+import { Form } from '../Form/form';
+import { Switcher } from '../Switcher/switcher';
+import { Spinner } from '../Spinner/spinner';
+import { CountryName } from '../CountryName/countryName';
 import './table2.scss';
 import { Country, CountryDetails } from 'src/type';
+import { countriesUrl } from '../../consts';
 
 interface Props {
     setClassNameCol1: (className: string) => void;
@@ -71,8 +72,7 @@ export class Table2 extends React.Component<Props> {
     }
 
     async componentDidMount() {
-        const url = "https://disease.sh/v3/covid-19/countries";
-        const data = await fetch(url).then(res => res.json());;
+        const data = await fetch(countriesUrl).then(res => res.json());;
         this.setState({countriesData: data, loading: false });
         this.props.setCountries(data);
     }
@@ -90,11 +90,6 @@ export class Table2 extends React.Component<Props> {
         if (prevProps.isRelativeValues !== this.props.isRelativeValues) {
             this.setState({ isRelativeValues: this.props.isRelativeValues });
         }
-    }
-
-    async updateValues(evt: any, dataField: string) {
-        await this.props.setGraphParameter(dataField);
-        await this.setState({value: `${evt.target.value}`});
     }
 
     render() {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Switcher } from '../Switcher';
-import { Maximize } from '../MaximiseButton';
-import { Spinner } from '../Spinner';
-import { CountryName } from '../CountryName';
+import { Switcher } from '../Switcher/switcher';
+import { Maximize } from '../MaximiseButton/maximiseButton';
+import { Spinner } from '../Spinner/spinner';
+import { CountryName } from '../CountryName/countryName';
 import './table1.scss';
 import { initialClassNameCol1Table1 } from '../../App';
 import { CountryDetails } from 'src/type';

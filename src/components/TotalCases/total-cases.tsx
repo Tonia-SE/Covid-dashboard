@@ -1,4 +1,5 @@
 import React from 'react';
+import { allCountryUrl } from '../../../src/consts';
 import './total-cases.scss';
 
 interface Props {
@@ -14,7 +15,7 @@ export class TotalCases extends React.Component<Props> {
     }
 
     async componentDidMount() {
-        const data = await fetch('https://disease.sh/v3/covid-19/all').then(res => res.json());
+        const data = await fetch(allCountryUrl).then(res => res.json());
         const date = new Date(data['updated']);
         const date1 = date.getDate() + '.' + date.getMonth() + "." + date.getFullYear();
 
