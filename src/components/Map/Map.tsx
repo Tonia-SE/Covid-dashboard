@@ -1,12 +1,12 @@
 import React from 'react';
-import { Maximize } from '../MaximiseButton';
-import { CountryName } from '../CountryName';
-import { Switcher } from '../Switcher';
+import { Maximize } from '../MaximiseButton/maximiseButton';
+import { CountryName } from '../CountryName/countryName';
+import { Switcher } from '../Switcher/switcher';
 import CovidMap from "./components/CovidMap";
 import addGeoAndLegendInfo from './tasks/addGeoAndLegendInfo';
 import Legend from './components/Legend';
 import legendItems from './entities/LegendItems';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../Spinner/spinner';
 import "leaflet/dist/leaflet.css";
 import './Map.scss';
 import { CountryDetails, Table1DataAttrs } from 'src/type';
@@ -36,10 +36,10 @@ export class Map extends React.Component<Props> {
             this.setState({countryDetails: this.props.countryDetails});
         }
     }
-     render() {
+    render() {
         const legendItemsReverse = [...legendItems].reverse();
         return (
-            <>  <div className="h1">
+            <>  <div className="map-title">
                     <h1>COVID-19 Dashboard</h1>
                 </div>
                 <div className="justify-content-between flex-wrap flex-md-nowrap align-items-center">

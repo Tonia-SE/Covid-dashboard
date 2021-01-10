@@ -1,5 +1,5 @@
 import React from 'react';
-import './switcher1.scss';
+import './switcher.scss';
 
 interface SwitcherProps {    
     switchGroupState?: boolean,

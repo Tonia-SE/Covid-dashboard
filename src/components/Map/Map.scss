@@ -1,6 +1,6 @@
 @import './../../variables';
 
-.h1 {
+.map-title {
     @include table_background_gradient;
     @include title-table;
     display: flex;
@@ -21,7 +21,7 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .h1 h1 {
+    .map-title h1 {
         font-size: 1.9rem !important;
     }
 }

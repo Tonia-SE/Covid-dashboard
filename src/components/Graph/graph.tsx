@@ -1,13 +1,12 @@
 import React from 'react';
-import { Maximize } from '../MaximiseButton';
-import { Switcher } from '../Switcher';
-import { CountryName } from '../CountryName';
+import { Maximize } from '../MaximiseButton/maximiseButton';
+import { Switcher } from '../Switcher/switcher';
+import { CountryName } from '../CountryName/countryName';
 import { initialClassNameCol1Graph } from '../../App';
 import { Line } from 'react-chartjs-2';
 import './graph.scss';
 import { CountryDetails } from 'src/type';
-import { throws } from 'assert';
-import { Spinner } from '../Spinner';
+import { Spinner } from '../Spinner/spinner';
 
 interface Props {
     countryDetails: CountryDetails;
@@ -46,8 +45,6 @@ export class Graph extends React.Component<Props> {
         parameter: this.props.parameter
     }
 
-    timeline = {}
-
     async updateData(parameter:string, url: string) {
         this.setState({loading: true });
         let data = await fetch(url).then(res => res.json());
@@ -74,8 +71,7 @@ export class Graph extends React.Component<Props> {
         } else {
             newGraphData = {datasets: [{ label: 'Sorry, no statistics data for this country'}]};
         }
-        await this.setState({graphData: newGraphData});
-        await this.setState({loading: false });
+        this.setState({ graphData: newGraphData, loading: false });
     }
 
     async componentDidUpdate(prevProps: Props) {
@@ -84,11 +80,11 @@ export class Graph extends React.Component<Props> {
             await this.updateData(this.props.parameter, this.props.countryDetails.graphURL);
         }
         if (prevProps.countryDetails.graphURL !== this.props.countryDetails.graphURL) {
-            await this.setState({countryDetails: this.props.countryDetails});
+            this.setState({countryDetails: this.props.countryDetails});
             await this.updateData(this.props.parameter, this.props.countryDetails.graphURL);
         }
         if (prevProps.classNameCol1Graph !== this.props.classNameCol1Graph) {
-            await this.setState({classNameCol1Graph: this.props.classNameCol1Graph});
+            this.setState({classNameCol1Graph: this.props.classNameCol1Graph});
         }
     }
 
@@ -140,7 +136,7 @@ export class Graph extends React.Component<Props> {
                                             labelString: "date",
                                             weight: 2,
                                             callback: function(value: string, index: number, values: string[]) {
-                                                return `${+value/1000000}M`;
+                                                return `${(Number(value)/1000000).toFixed()}M`;
                                             }
                                         },
                                     }],
