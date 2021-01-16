@@ -1,0 +1,101 @@
+@import './../../variables';
+
+.table-wrapper {
+    height: 18vh;
+    @include table_background_gradient;
+    margin: 0.5vh .2rem 0.5vh .2rem;
+}
+
+.maximise-style {
+    margin: 0 auto !important;
+}
+
+.maximise-wrapper {
+    @include maximise-wrapper;
+    margin: 0 auto;
+}
+
+.switcher-wrapper {
+    @include switcher-wrapper;
+}
+
+.table-cases-wrap {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem !important;
+}
+
+.cases-head {
+    font-weight: 500 !important;
+}
+
+.table th, .table td {
+    padding: 0!important;
+}
+
+.cases-info {
+    text-align: center;
+    color: #fff;
+    width: 1rem;
+    font-size: 1.3rem!important;
+}
+
+@media (max-width: 1300px) {
+    .cases-head {
+        width: 2rem;
+        font-size: 0.8em;
+    }
+
+    .table th, .table td {
+        font-size: 0.7rem;
+    }
+
+    .cases-info {
+        width: 2rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cases-info {
+        width: 2rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .table-responsive-md {
+        display: table;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .table-responsive-sm {
+        display: table;
+    }
+}
+
+@media (max-height: 768px) {
+    .table-cases-wrap {
+        font-size: 1rem !important;
+    }
+
+    .cases-info {
+        font-size: 1rem !important;
+    }
+
+    .column.col-md-6.d-md-block.bg-light.maximise-wrapper.table-countries {
+        display: block;
+    }
+
+}
+
+@media (max-height: 600px) {
+    .table-cases-wrap {
+        font-size: 1rem !important;
+    }
+
+    .cases-info {
+        font-size: 0.8rem !important;
+    }
+}

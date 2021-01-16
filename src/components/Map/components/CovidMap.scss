@@ -1,0 +1,34 @@
+.leaflet-container {
+  background: radial-gradient(ellipse at center, rgba(8, 224, 211, 0.9) 0%, rgba(25, 128, 189, 0.9) 51%, rgba(0, 197, 148, 0.8) 100%);
+}
+
+.leaflet-tooltip {
+	padding: 6px;
+	background-color: #24bb1f;
+	border: 2px solid #6bfc66;
+	border-radius: 5px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+}
+
+.leaflet-interactive:hover {
+	fill: rgb(214, 29, 29);
+}
+
+.legend-row span {
+  font-size: 0.9rem !important
+}
+
+.map-container {
+  height: 67vh !important;
+}
+
+@media (max-width: 1024px) {
+  .map-container {
+    height: 67vh !important;
+  }
+
+  .legend-row span {
+    font-size: 0.7rem !important
+  }
+}

@@ -1,0 +1,66 @@
+.first-wrapper-btns {
+    $label-width: 3vw;
+    $label-height: 18px;
+
+    .wrapper {
+        position: relative;
+        left: 50%;
+        margin-left: - $label-width / 2;
+        top: 50%;
+        margin-top: - $label-height / 2;
+    }
+
+    label {
+        display: block;
+        left: 0px;
+        top: 0;
+        position: relative;
+        width: $label-width;
+        height: $label-height;
+        z-index: 10;
+        line-height: $label-height;
+        font-weight: bold;
+        background: rgb(30, 64, 97);
+        border-radius: 3px;
+        -webkit-transition: all 600ms;
+        -moz-transition: all 600ms;
+        -ms-transition: all 600ms;
+        -o-transition: all 600ms;
+        transition: all 600ms;
+        cursor: pointer;
+        margin-right: 1vw;
+    }
+
+    label:after {
+        content: "";
+        width: $label-width / 2;
+        height: $label-height;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        display: block;
+        border-radius: 3px;
+        background: #00CCFF;
+        -webkit-transition: all 600ms;
+        -moz-transition: all 600ms;
+        -ms-transition: all 600ms;
+        -o-transition: all 600ms;
+        transition: all 600ms;
+        cursor: pointer;
+    }
+
+    .checkbox {
+        display: none;
+    }
+
+    :checked + label {
+        left: 0px;
+    }
+
+    :checked + label:after {
+        left: $label-width / 2;
+        content: "";
+    }
+}
+
+

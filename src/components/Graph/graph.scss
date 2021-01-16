@@ -1,0 +1,117 @@
+@import './../../variables';
+
+.table-graph-wrapper {
+    height: 45vh;
+    @include table_background_gradient;
+    margin: 0.5vh .2rem 0rem .2rem;
+}
+
+.switcher-wrapper {
+    @include switcher-wrapper;
+}
+
+.maximise-wrapper {
+    @include maximise-wrapper;
+}
+
+.maximise-style {
+    margin: 0 auto !important;
+}
+
+.graph {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+canvas {
+    height: 35vh !important;
+}
+
+
+@media (max-width: 1024px) {
+    .switcher-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 8vw;
+        margin-right: 1vw;
+    }
+
+    .first-wrapper-btns label {
+        width: 4vw;
+    }
+
+    .first-wrapper-btns label:after {
+        width: 2vw;}
+
+}
+
+
+
+
+@media (max-width: 768px) {
+    .switcher-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 10vw;
+        margin-right: 3vw;
+    }
+
+    .first-wrapper-btns label {
+        width: 5vw;
+    }
+
+
+    .first-wrapper-btns label:after {
+        width: 2.5vw;
+    }
+}
+
+@media (max-width: 680px) {
+    .switcher-wrapper {
+        width: 12vw;
+        margin-right: 3vw;
+    }
+
+    .first-wrapper-btns label {
+        width: 6vw;
+    }
+
+
+    .first-wrapper-btns label:after {
+        width: 3vw;
+    }
+}
+@media (max-width: 530px) {
+    .switcher-wrapper {
+        width: 14vw;
+        margin-right: 3.5vw;
+    }
+
+    .first-wrapper-btns label {
+        width: 7vw;
+    }
+
+
+    .first-wrapper-btns label:after {
+        width: 3.5vw;
+    }
+}
+@media (max-width: 400px) {
+    .switcher-wrapper {
+        width: 18vw;
+        margin-right: 4.5vw;
+    }
+
+    .first-wrapper-btns label {
+        width: 9vw;
+    }
+
+
+    .first-wrapper-btns label:after {
+        width: 4.5vw;
+    }
+}

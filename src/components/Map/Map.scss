@@ -1,0 +1,27 @@
+@import './../../variables';
+
+.map-title {
+    @include table_background_gradient;
+    @include title-table;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 7vh;
+    min-height: 7vh;
+    text-align: center;
+    margin-bottom: 1vh !important;
+}
+
+h1 {
+    margin-bottom: 0 !important;
+}
+
+.maximise-style {
+    margin: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+    .map-title h1 {
+        font-size: 1.9rem !important;
+    }
+}
